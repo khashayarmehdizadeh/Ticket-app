@@ -1,38 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mft/model/entity/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mft/model/entity/Ticket.java" afterDir="false" />
+    <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="a">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicketApllication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TicketApllication.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/lib/commons-dbcp2-2.9.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/commons-dbcp2-2.9.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/lib/commons-logging-1.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/commons-logging-1.2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/lib/commons-pool2-2.10.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/commons-pool2-2.10.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/lib/gson-2.10.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/gson-2.10.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/lib/log4j-1.2.17.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/log4j-1.2.17.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/lib/lombok-1.18.24.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/lombok-1.18.24.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/lib/ojdbc8-21.9.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/ojdbc8-21.9.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/MyApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/MyApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/controller/exceptions/FailedRequiermentException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/controller/exceptions/FailedRequiermentException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/controller/exceptions/NoPersonFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/controller/exceptions/NoPersonFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/model/bl/PersonBl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/bl/PersonBl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/model/da/PersonDa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/PersonDa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/model/da/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/model/entity/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/entity/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/model/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/entity/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/model/entity/enums/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/entity/enums/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/model/entity/enums/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/entity/enums/Gender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/model/tools/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/tools/CRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/model/tools/ConnectionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/tools/ConnectionProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/model/tools/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/tools/Validator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/test/PersonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/test/PersonTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/view/WindowsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/view/WindowsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/view/about.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/view/about.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mft/view/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/view/profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mft/model/da/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/db.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +54,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="mft.model.entity" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -89,8 +68,17 @@
       <option name="presentableId" value="Default" />
       <updated>1716269921318</updated>
       <workItem from="1716269922397" duration="1000" />
-      <workItem from="1716301520116" duration="394000" />
+      <workItem from="1716301520116" duration="948000" />
     </task>
+    <task id="LOCAL-00001" summary="a">
+      <option name="closed" value="true" />
+      <created>1716301953338</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716301953338</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,7 +86,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="a" />
+    <option name="LAST_COMMIT_MESSAGE" value="a" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
