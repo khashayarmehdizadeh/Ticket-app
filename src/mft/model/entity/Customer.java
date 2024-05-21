@@ -17,11 +17,9 @@ import java.time.LocalDate;
 
 public class Customer {
     private int id;
-    private String name;
     private String family;
-    private Gender gender;
-    private LocalDate birthDate;
-    private City city;
+    private String phoneNumber;
+
 
 
     @Override
