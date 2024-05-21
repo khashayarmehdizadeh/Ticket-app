@@ -14,13 +14,24 @@ create table Event
     category nvarchar2(20),
     price    number,
     quantity number,
-    datetime date
+    date_time timestamp
 );
 create sequence Event_seq start with 1 increment by 1;
 create table Payment
 (
     id       number primary key,
     amount   number,
-    datetime date
+    date_time timestamp
 );
 create sequence Payment_seq start with 1 increment by 1;
+
+
+create table Ticket
+(
+    id       number primary key,
+    event_id references Event,
+    info nvarchar2(30),
+    date_time timestamp,
+    payment_id references Payment,
+    customer_id refernces customer
+);
