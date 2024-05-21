@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Log4j
-public class PersonDa implements AutoCloseable, CRUD<Customer> {
-    private final Connection connection;
+public class customer implements AutoCloseable, CRUD<Customer> {
+    private Connection connection;
     private PreparedStatement preparedStatement;
 
     public void CustomerDa() throws SQLException {
