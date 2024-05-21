@@ -31,7 +31,16 @@ public class CustomerBl implements CRUD<Customer> {
 
     @Override
     public Customer remove(int id) throws Exception {
-        return null;
+        try (CustomerDa customerDa=new CustomerDa()){
+            Customer customer=customerDa.findById(id);
+            if (customer!=null) {
+                customerDa.remove(id);
+                return customer;
+
+            }else {
+                throw new NoCustomerFoundException();
+            }
+        }
     }
 
     @Override
