@@ -77,11 +77,6 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
     }
 
 
-    public Customer findByFamily(int family) throws Exception {
-        return null;
-    }
-
-
     public Customer findByFamily() throws Exception {
         return findByFamily(null);
     }
@@ -89,7 +84,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
 
     public Customer findByFamily(String family) throws Exception {
         preparedStatement = connection.prepareStatement("SELECT * FROM customer WHERE FAMILY=?");
-        preparedStatement.setInt(1, family);
+        preparedStatement.setInt(1, Integer.parseInt(family));
         ResultSet resultSet = preparedStatement.executeQuery();
         Customer customer = null;
         if (resultSet.next()) {
@@ -101,27 +96,6 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
                     .build();
         }
         return customer;
-    }
-
-    public List<Customer> findByFamily(String family) throws Exception {
-        List<Customer> customerList = new ArrayList<>();
-
-        preparedStatement = connection.prepareStatement("SELECT * FROM customer WHERE FAMILY LIKE? ORDER BY ID");
-        preparedStatement.setString(1, family + "%");
-        ResultSet resultSet = preparedStatement.executeQuery();
-
-        while (resultSet.next()) {
-            Customer customer = Customer
-                    .builder()
-                    .id(resultSet.getInt("id"))
-                    .family(resultSet.getString("family"))
-                    .phoneNumber(resultSet.getString("phoneNumber"))
-                    .build();
-
-            customerList.add(customer);
-        }
-
-        return customerList;
     }
 
     @Override

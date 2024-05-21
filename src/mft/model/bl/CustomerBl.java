@@ -1,5 +1,6 @@
 package mft.model.bl;
 
+import mft.controller.exceptions.NoCustomerFoundException;
 import mft.model.da.CustomerDa;
 import mft.model.entity.Customer;
 import mft.model.tools.CRUD;
@@ -17,7 +18,15 @@ public class CustomerBl implements CRUD<Customer> {
 
     @Override
     public Customer edit(Customer customer) throws Exception {
-        return null;
+        try (CustomerDa customerDa=new CustomerDa()){
+            if (customerDa.findByFamily(customer.getFamily())!=null){
+                customerDa.edit(customer);
+                return customer;
+
+            }else {
+                throw new NoCustomerFoundException();
+            }
+        }
     }
 
     @Override
