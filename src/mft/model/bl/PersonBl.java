@@ -1,15 +1,14 @@
 package mft.model.bl;
 
 import lombok.Getter;
-import mft.controller.exceptions.FailedRequiermentException;
 import mft.controller.exceptions.NoPersonFoundException;
 import mft.model.da.PersonDa;
-import mft.model.entity.Person;
+import mft.model.entity.Customer;
 import mft.model.tools.CRUD;
 
 import java.util.List;
 
-public class PersonBl implements CRUD<Person> {
+public class PersonBl implements CRUD<Customer> {
     @Getter
     private static PersonBl personBl = new PersonBl();
 
@@ -17,19 +16,19 @@ public class PersonBl implements CRUD<Person> {
     }
 
     @Override
-    public Person save(Person person) throws Exception {
+    public Customer save(Customer customer) throws Exception {
         try (PersonDa personDa = new PersonDa()) {
-            personDa.save(person);
-            return person;
+            personDa.save(customer);
+            return customer;
         }
     }
 
     @Override
-    public Person edit(Person person) throws Exception {
+    public Customer edit(Customer customer) throws Exception {
         try (PersonDa personDa = new PersonDa()) {
-            if (personDa.findById(person.getId()) != null) {
-                personDa.edit(person);
-                return person;
+            if (personDa.findById(customer.getId()) != null) {
+                personDa.edit(customer);
+                return customer;
             } else {
                 throw new NoPersonFoundException();
             }
@@ -37,12 +36,12 @@ public class PersonBl implements CRUD<Person> {
     }
 
     @Override
-    public Person remove(int id) throws Exception {
+    public Customer remove(int id) throws Exception {
         try (PersonDa personDa = new PersonDa()) {
-            Person person = personDa.findById(id);
-            if (person != null) {
+            Customer customer = personDa.findById(id);
+            if (customer != null) {
                 personDa.remove(id);
-                return person;
+                return customer;
             } else {
                 throw new NoPersonFoundException();
             }
@@ -50,9 +49,9 @@ public class PersonBl implements CRUD<Person> {
     }
 
     @Override
-    public List<Person> findAll() throws Exception {
+    public List<Customer> findAll() throws Exception {
         try (PersonDa personDa = new PersonDa()) {
-            List<Person> perosnList = personDa.findAll();
+            List<Customer> perosnList = personDa.findAll();
             if (!perosnList.isEmpty()) {
                 return perosnList;
             } else {
@@ -62,20 +61,20 @@ public class PersonBl implements CRUD<Person> {
     }
 
     @Override
-    public Person findById(int id) throws Exception {
+    public Customer findById(int id) throws Exception {
         try (PersonDa personDa = new PersonDa()) {
-            Person person = personDa.findById(id);
-            if (person != null) {
-                return person;
+            Customer customer = personDa.findById(id);
+            if (customer != null) {
+                return customer;
             } else {
                 throw new NoPersonFoundException();
             }
         }
     }
 
-    public List<Person> findByFamily(String family) throws Exception {
+    public List<Customer> findByFamily(String family) throws Exception {
         try (PersonDa personDa = new PersonDa()) {
-            List<Person> perosnList = personDa.findByFamily(family);
+            List<Customer> perosnList = personDa.findByFamily(family);
             if (!perosnList.isEmpty()) {
                 return perosnList;
             } else {

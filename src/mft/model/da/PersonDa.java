@@ -1,7 +1,7 @@
 package mft.model.da;
 
 import lombok.extern.log4j.Log4j;
-import mft.model.entity.Person;
+import mft.model.entity.Customer;
 import mft.model.entity.enums.City;
 import mft.model.entity.enums.Gender;
 import mft.model.tools.CRUD;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Log4j
-public class PersonDa implements AutoCloseable, CRUD<Person> {
+public class PersonDa implements AutoCloseable, CRUD<Customer> {
     private final Connection connection;
     private PreparedStatement preparedStatement;
 
@@ -21,45 +21,45 @@ public class PersonDa implements AutoCloseable, CRUD<Person> {
     }
 
     @Override
-    public Person save(Person person) throws Exception {
-        person.setId(ConnectionProvider.getConnectionProvider().getNextId("PERSON_SEQ"));
+    public Customer save(Customer customer) throws Exception {
+        customer.setId(ConnectionProvider.getConnectionProvider().getNextId("PERSON_SEQ"));
 
         preparedStatement = connection.prepareStatement(
                 "INSERT INTO PERSON (ID, NAME, FAMILY, GENDER, BIRTH_DATE, CITY, ALGO, SE, EE) VALUES (?,?,?,?,?,?,?,?,?)"
         );
-        preparedStatement.setInt(1, person.getId());
-        preparedStatement.setString(2, person.getName());
-        preparedStatement.setString(3, person.getFamily());
-        preparedStatement.setString(4, person.getGender().name());
-        preparedStatement.setDate(5, Date.valueOf(person.getBirthDate()));
-        preparedStatement.setString(6, person.getCity().name());
-        preparedStatement.setBoolean(7, person.isAlgorithmSkill());
-        preparedStatement.setBoolean(8, person.isJavaSESkill());
-        preparedStatement.setBoolean(9, person.isJavaEESkill());
+        preparedStatement.setInt(1, customer.getId());
+        preparedStatement.setString(2, customer.getName());
+        preparedStatement.setString(3, customer.getFamily());
+        preparedStatement.setString(4, customer.getGender().name());
+        preparedStatement.setDate(5, Date.valueOf(customer.getBirthDate()));
+        preparedStatement.setString(6, customer.getCity().name());
+        preparedStatement.setBoolean(7, customer.isAlgorithmSkill());
+        preparedStatement.setBoolean(8, customer.isJavaSESkill());
+        preparedStatement.setBoolean(9, customer.isJavaEESkill());
         preparedStatement.execute();
-        return person;
+        return customer;
     }
 
     @Override
-    public Person edit(Person person) throws Exception {
+    public Customer edit(Customer customer) throws Exception {
         preparedStatement = connection.prepareStatement(
                 "UPDATE PERSON SET NAME=?, FAMILY=?, GENDER=?, BIRTH_DATE=?, CITY=?, ALGO=?, SE=?, EE=? WHERE ID=?"
         );
-        preparedStatement.setString(1, person.getName());
-        preparedStatement.setString(2, person.getFamily());
-        preparedStatement.setString(3, person.getGender().name());
-        preparedStatement.setDate(4, Date.valueOf(person.getBirthDate()));
-        preparedStatement.setString(5, person.getCity().name());
-        preparedStatement.setBoolean(6, person.isAlgorithmSkill());
-        preparedStatement.setBoolean(7, person.isJavaSESkill());
-        preparedStatement.setBoolean(8, person.isJavaEESkill());
-        preparedStatement.setInt(9, person.getId());
+        preparedStatement.setString(1, customer.getName());
+        preparedStatement.setString(2, customer.getFamily());
+        preparedStatement.setString(3, customer.getGender().name());
+        preparedStatement.setDate(4, Date.valueOf(customer.getBirthDate()));
+        preparedStatement.setString(5, customer.getCity().name());
+        preparedStatement.setBoolean(6, customer.isAlgorithmSkill());
+        preparedStatement.setBoolean(7, customer.isJavaSESkill());
+        preparedStatement.setBoolean(8, customer.isJavaEESkill());
+        preparedStatement.setInt(9, customer.getId());
         preparedStatement.execute();
-        return person;
+        return customer;
     }
 
     @Override
-    public Person remove(int id) throws Exception {
+    public Customer remove(int id) throws Exception {
         preparedStatement = connection.prepareStatement(
                 "DELETE FROM PERSON WHERE ID=?"
         );
@@ -69,14 +69,14 @@ public class PersonDa implements AutoCloseable, CRUD<Person> {
     }
 
     @Override
-    public List<Person> findAll() throws Exception {
-        List<Person> personList = new ArrayList<>();
+    public List<Customer> findAll() throws Exception {
+        List<Customer> customerList = new ArrayList<>();
 
         preparedStatement = connection.prepareStatement("SELECT * FROM PERSON ORDER BY ID");
         ResultSet resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
-            Person person = Person
+            Customer customer = Customer
                     .builder()
                     .id(resultSet.getInt("ID"))
                     .name(resultSet.getString("NAME"))
@@ -89,20 +89,20 @@ public class PersonDa implements AutoCloseable, CRUD<Person> {
                     .JavaEESkill(resultSet.getBoolean("EE"))
                     .build();
 
-            personList.add(person);
+            customerList.add(customer);
         }
 
-        return personList;
+        return customerList;
     }
 
     @Override
-    public Person findById(int id) throws Exception {
+    public Customer findById(int id) throws Exception {
         preparedStatement = connection.prepareStatement("SELECT * FROM PERSON WHERE ID=?");
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
-        Person person = null;
+        Customer customer = null;
         if (resultSet.next()) {
-            person = Person
+            customer = Customer
                     .builder()
                     .id(resultSet.getInt("ID"))
                     .name(resultSet.getString("NAME"))
@@ -115,18 +115,18 @@ public class PersonDa implements AutoCloseable, CRUD<Person> {
                     .JavaEESkill(resultSet.getBoolean("EE"))
                     .build();
         }
-        return person;
+        return customer;
     }
 
-    public List<Person> findByFamily(String family) throws Exception {
-        List<Person> personList = new ArrayList<>();
+    public List<Customer> findByFamily(String family) throws Exception {
+        List<Customer> customerList = new ArrayList<>();
 
         preparedStatement = connection.prepareStatement("SELECT * FROM PERSON WHERE FAMILY LIKE? ORDER BY ID");
         preparedStatement.setString(1, family + "%");
         ResultSet resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
-            Person person = Person
+            Customer customer = Customer
                     .builder()
                     .id(resultSet.getInt("ID"))
                     .name(resultSet.getString("NAME"))
@@ -139,10 +139,10 @@ public class PersonDa implements AutoCloseable, CRUD<Person> {
                     .JavaEESkill(resultSet.getBoolean("EE"))
                     .build();
 
-            personList.add(person);
+            customerList.add(customer);
         }
 
-        return personList;
+        return customerList;
     }
 
     @Override

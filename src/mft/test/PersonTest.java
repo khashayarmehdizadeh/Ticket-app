@@ -1,7 +1,7 @@
 package mft.test;
 
 import mft.model.bl.PersonBl;
-import mft.model.entity.Person;
+import mft.model.entity.Customer;
 import mft.model.entity.enums.City;
 import mft.model.entity.enums.Gender;
 
@@ -14,7 +14,7 @@ public class PersonTest {
 //        System.out.println(PersonBl.getPersonBl().findByFamily("alipour"));
 //        System.out.println(PersonBl.getPersonBl().remove(3));
         System.out.println(PersonBl.getPersonBl().edit(
-                Person.builder()
+                Customer.builder()
                         .id(4)
                         .name("aaa")
                         .family("bbbb")

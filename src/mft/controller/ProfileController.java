@@ -9,7 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lombok.extern.log4j.Log4j;
 import mft.model.bl.PersonBl;
-import mft.model.entity.Person;
+import mft.model.entity.Customer;
 import mft.model.entity.enums.City;
 import mft.model.entity.enums.Gender;
 import mft.model.tools.Validator;
@@ -43,13 +43,13 @@ public class ProfileController implements Initializable {
     private Button saveBtn, editBtn, removeBtn;
 
     @FXML
-    private TableView<Person> personTbl;
+    private TableView<Customer> personTbl;
 
     @FXML
-    private TableColumn<Person, Integer> idCol;
+    private TableColumn<Customer, Integer> idCol;
 
     @FXML
-    private TableColumn<Person, String> firstNameCol, lastNameCol;
+    private TableColumn<Customer, String> firstNameCol, lastNameCol;
 
     @FXML
     private MenuItem closeMnu, newMnu, aboutMnu;
@@ -99,7 +99,7 @@ public class ProfileController implements Initializable {
             try {
                 RadioButton gender = (RadioButton) genderToggle.getSelectedToggle();
 
-                Person person = Person
+                Customer customer = Customer
                         .builder()
                         .name(Validator.nameValidator(nameTxt.getText(), "Invalid Name"))
                         .family(Validator.nameValidator(familyTxt.getText(), "Invalid Family"))
@@ -110,11 +110,11 @@ public class ProfileController implements Initializable {
                         .JavaSESkill(seChk.isSelected())
                         .JavaEESkill(eeChk.isSelected())
                         .build();
-                PersonBl.getPersonBl().save(person);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION, " Person Saved\n" + person);
+                PersonBl.getPersonBl().save(customer);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, " Person Saved\n" + customer);
                 alert.show();
                 resetForm();
-                log.info("Person Saved " + person);
+                log.info("Person Saved " + customer);
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, " Person Save Error\n" + e.getMessage());
                 alert.show();
@@ -126,7 +126,7 @@ public class ProfileController implements Initializable {
             try {
                 RadioButton gender = (RadioButton) genderToggle.getSelectedToggle();
 
-                Person person = Person
+                Customer customer = Customer
                         .builder()
                         .id(Integer.parseInt(idTxt.getText()))
                         .name(Validator.nameValidator(nameTxt.getText(), "Invalid Name"))
@@ -138,11 +138,11 @@ public class ProfileController implements Initializable {
                         .JavaSESkill(seChk.isSelected())
                         .JavaEESkill(eeChk.isSelected())
                         .build();
-                PersonBl.getPersonBl().edit(person);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION, " Person Edited\n" + person);
+                PersonBl.getPersonBl().edit(customer);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, " Person Edited\n" + customer);
                 alert.show();
                 resetForm();
-                log.info("Person Edited " + person);
+                log.info("Person Edited " + customer);
 
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, " Person Edit Error\n" + e.getMessage());
@@ -177,28 +177,28 @@ public class ProfileController implements Initializable {
         });
 
         personTbl.setOnMouseClicked((event) -> {
-            Person person = personTbl.getSelectionModel().getSelectedItem();
-            idTxt.setText(String.valueOf(person.getId()));
-            nameTxt.setText(person.getName());
-            familyTxt.setText(person.getFamily());
-            if (person.getGender().equals(Gender.Male)) {
+            Customer customer = personTbl.getSelectionModel().getSelectedItem();
+            idTxt.setText(String.valueOf(customer.getId()));
+            nameTxt.setText(customer.getName());
+            familyTxt.setText(customer.getFamily());
+            if (customer.getGender().equals(Gender.Male)) {
                 maleRdo.setSelected(true);
             } else {
                 femaleRdo.setSelected(true);
             }
 
-            birthDate.setValue(person.getBirthDate());
+            birthDate.setValue(customer.getBirthDate());
 
-            cityCmb.getSelectionModel().select(person.getCity().ordinal());
+            cityCmb.getSelectionModel().select(customer.getCity().ordinal());
 
-            algoChk.setSelected(person.isAlgorithmSkill());
-            seChk.setSelected(person.isJavaSESkill());
-            eeChk.setSelected(person.isJavaEESkill());
+            algoChk.setSelected(customer.isAlgorithmSkill());
+            seChk.setSelected(customer.isJavaSESkill());
+            eeChk.setSelected(customer.isJavaEESkill());
         });
     }
 
-    private void showDataOnTable(List<Person> personList) {
-        ObservableList<Person> observableList = FXCollections.observableList(personList);
+    private void showDataOnTable(List<Customer> customerList) {
+        ObservableList<Customer> observableList = FXCollections.observableList(customerList);
 
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
