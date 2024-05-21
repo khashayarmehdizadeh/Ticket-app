@@ -2,8 +2,6 @@ package mft.test;
 
 import mft.model.bl.PersonBl;
 import mft.model.entity.Customer;
-import mft.model.entity.enums.City;
-import mft.model.entity.enums.Gender;
 
 import java.time.LocalDate;
 
