@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Log4j
-public class customer implements AutoCloseable, CRUD<Customer> {
+public class CustomerDa implements AutoCloseable, CRUD<Customer> {
     private Connection connection;
     private PreparedStatement preparedStatement;
 
@@ -46,19 +46,15 @@ public class customer implements AutoCloseable, CRUD<Customer> {
 
     @Override
     public Customer remove(int id) throws Exception {
-        preparedStatement = connection.prepareStatement(
-                "DELETE FROM customer WHERE ID=?"
-        );
-        preparedStatement.setInt(1, id);
-        preparedStatement.execute();
         return null;
     }
+
 
     @Override
     public List<Customer> findAll() throws Exception {
         List<Customer> customerList = new ArrayList<>();
 
-        preparedStatement = connection.prepareStatement("SELECT * FROM customer ORDER BY ID");
+        preparedStatement = connection.prepareStatement("SELECT * FROM customer ORDER BY FAMILY");
         ResultSet resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
@@ -77,8 +73,23 @@ public class customer implements AutoCloseable, CRUD<Customer> {
 
     @Override
     public Customer findById(int id) throws Exception {
-        preparedStatement = connection.prepareStatement("SELECT * FROM customer WHERE ID=?");
-        preparedStatement.setInt(1, id);
+        return null;
+    }
+
+
+    public Customer findByFamily(int family) throws Exception {
+        return null;
+    }
+
+
+    public Customer findByFamily() throws Exception {
+        return findByFamily(null);
+    }
+
+
+    public Customer findByFamily(String family) throws Exception {
+        preparedStatement = connection.prepareStatement("SELECT * FROM customer WHERE FAMILY=?");
+        preparedStatement.setInt(1, family);
         ResultSet resultSet = preparedStatement.executeQuery();
         Customer customer = null;
         if (resultSet.next()) {

@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="Da">
-      <change afterPath="$PROJECT_DIR$/src/mft/model/da/EventDa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mft/model/bl/CustomerBl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mft/model/da/CustomerDa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/CustomerDa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mft/model/da/EventDa.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716269921318</updated>
       <workItem from="1716269922397" duration="1000" />
-      <workItem from="1716301520116" duration="5275000" />
+      <workItem from="1716301520116" duration="6172000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <option name="closed" value="true" />
@@ -110,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716305325322</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Da">
+      <option name="closed" value="true" />
+      <created>1716307024132</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716307024132</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,11 +142,6 @@
           <url>file://$PROJECT_DIR$/src/Main.java</url>
           <line>11</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/mft/model/da/CustomerDa.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
