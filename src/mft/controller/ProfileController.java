@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lombok.extern.log4j.Log4j;
-import mft.model.bl.PersonBl;
 import mft.model.entity.Customer;
 import mft.model.tools.Validator;
 import mft.view.WindowsManager;

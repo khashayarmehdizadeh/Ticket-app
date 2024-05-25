@@ -1,6 +1,5 @@
 package mft.test;
 
-import mft.model.bl.PersonBl;
 import mft.model.entity.Customer;
 
 import java.time.LocalDate;
