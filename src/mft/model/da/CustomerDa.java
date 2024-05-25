@@ -23,7 +23,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
         customer.setId(ConnectionProvider.getConnectionProvider().getNextId("customer_SEQ"));
 
         preparedStatement = connection.prepareStatement(
-                "INSERT INTO customer (id,family,phoneNumber,) VALUES (?,?,?,?,?,?,?,?,?)"
+                "INSERT INTO customer (id,family,phoneNumber,) VALUES (?,?,?)"
         );
         preparedStatement.setInt(1, customer.getId());
         preparedStatement.setString(2, customer.getFamily());
