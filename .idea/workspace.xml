@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="Bl">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="update customerbl">
+      <change afterPath="$PROJECT_DIR$/src/mft/model/da/EventDa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mft/model/bl/CustomerBl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/bl/CustomerBl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +80,7 @@
       <workItem from="1716269922397" duration="1000" />
       <workItem from="1716301520116" duration="8236000" />
       <workItem from="1716357705056" duration="100000" />
-      <workItem from="1716658997115" duration="4737000" />
+      <workItem from="1716658997115" duration="6206000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <option name="closed" value="true" />
@@ -148,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716309032291</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update customerbl">
+      <option name="closed" value="true" />
+      <created>1716667770602</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716667770602</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +166,8 @@
     <MESSAGE value="db" />
     <MESSAGE value="Da" />
     <MESSAGE value="Bl" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bl" />
+    <MESSAGE value="update customerbl" />
+    <option name="LAST_COMMIT_MESSAGE" value="update customerbl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
