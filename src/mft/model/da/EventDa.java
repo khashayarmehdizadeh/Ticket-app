@@ -19,6 +19,10 @@ public class EventDa implements CRUD<Event> {
 
     @Override
     public Event save(Event event) throws Exception {
+        event.setId(ConnectionProvider.getConnectionProvider().getNextId("event_SEQ"));
+        PreparedStatement=connection.prepareStatement(
+                "insert into event(id,name,category,price,quantity,)"
+        )
         return null;
     }
 
