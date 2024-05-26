@@ -83,18 +83,17 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
         ResultSet resultSet=preparedStatement.executeQuery();
         Customer customer=null;
         if(resultSet.next()){
-            customer=customer
+            customer=Customer
                     .builder()
+                    .id(resultSet.getInt("id"))
+                    .family(resultSet.getString("family"))
+                    .phoneNumber(resultSet.getString("phoneNumber"))
+                    .build();
 
-                    .build()
         }
-        return null;
+        return customer;
     }
 
-
-    public Customer findByFamily() throws Exception {
-        return findByFamily(null);
-    }
 
 
     public Customer findByFamily(String family) throws Exception {
