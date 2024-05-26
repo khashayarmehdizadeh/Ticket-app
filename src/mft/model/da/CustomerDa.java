@@ -46,6 +46,11 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
 
     @Override
     public Customer remove(int id) throws Exception {
+        preparedStatement=connection.prepareStatement(
+                "delete from customer where id=?"
+        );
+        preparedStatement.setInt(1,id);
+        preparedStatement.execute();
         return null;
     }
 
@@ -73,6 +78,16 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
 
     @Override
     public Customer findById(int id) throws Exception {
+        preparedStatement=connection.prepareStatement("select from customer where id");
+        preparedStatement.setInt(1,id);
+        ResultSet resultSet=preparedStatement.executeQuery();
+        Customer customer=null;
+        if(resultSet.next()){
+            customer=customer
+                    .builder()
+
+                    .build()
+        }
         return null;
     }
 
