@@ -2,13 +2,12 @@ package mft.model.da;
 
 
 import mft.model.entity.Event;
+import mft.model.entity.enums.EventCategory;
 import mft.model.tools.CRUD;
 import mft.model.tools.ConnectionProvider;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,15 +22,17 @@ public class EventDa implements AutoCloseable,CRUD<Event> {
     @Override
     public Event save(Event event) throws Exception {
         event.setId(ConnectionProvider.getConnectionProvider().getNextId("event_SEQ"));
+        event.setDateTime(LocalDateTime.now());
+
         PreparedStatement = connection.prepareStatement(
-                "insert into event(id,name,category,price,quantity,datetime) values (?,?,?,?,?,timestamp )"
+                "insert into event(id,name,category,price,quantity,datetime) values (?,?,?,?,?,? )"
         );
         PreparedStatement.setInt(1, event.getId());
         PreparedStatement.setString(2, event.getName());
-        PreparedStatement.setString(3, event.getCategory());
+        PreparedStatement.setString(3, event.getCategory().name());
         PreparedStatement.setDouble(4, event.getPrice());
-        PreparedStatement.setInt(5, event.getQuantity());
-        PreparedStatement.setDate(6, event.getDateTime());
+        PreparedStatement.setInt(5, event.getCapacity());
+        PreparedStatement.setTimestamp(6, Timestamp.valueOf(event.getDateTime()));
         PreparedStatement.execute();
         return event;
     }
@@ -39,13 +40,14 @@ public class EventDa implements AutoCloseable,CRUD<Event> {
     @Override
     public Event edit(Event event) throws Exception {
         PreparedStatement = connection.prepareStatement(
-                "update event set name=?,category=?,price=?,quantity=? where id=?"
+                "update event set name=?,category=?,price=?,quantity=?, date_time=? where id=?"
         );
         PreparedStatement.setInt(1, event.getId());
         PreparedStatement.setString(2, event.getName());
-        PreparedStatement.setString(3, event.getCategory());
+        PreparedStatement.setString(3, event.getCategory().name());
         PreparedStatement.setDouble(4, event.getPrice());
-        PreparedStatement.setInt(5, event.getQuantity());
+        PreparedStatement.setInt(5, event.getCapacity());
+        PreparedStatement.setTimestamp(6, Timestamp.valueOf(event.getDateTime()));
         PreparedStatement.execute();
         return event;
     }
@@ -70,9 +72,9 @@ public class EventDa implements AutoCloseable,CRUD<Event> {
                     .builder()
                     .id(resultSet.getInt("id"))
                     .name(resultSet.getString("name"))
-                    .category(resultSet.getString("category"))
+                    .category(EventCategory.valueOf(resultSet.getString("category")))
                     .price(resultSet.getDouble("price"))
-                    .quantity(resultSet.getInt("quantity"))
+                    .capacity(resultSet.getInt("quantity"))
                     .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
                     .build();
             EventList.add(event);
@@ -91,14 +93,17 @@ public class EventDa implements AutoCloseable,CRUD<Event> {
                     .builder()
                     .id(resultSet.getInt("id"))
                     .name(resultSet.getString("name"))
-                    .category(resultSet.getString("category"))
+                    .category(EventCategory.valueOf(resultSet.getString("category")))
                     .price(resultSet.getDouble("price"))
-                    .quantity(resultSet.getInt("quantity"))
+                    .capacity(resultSet.getInt("quantity"))
                     .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
                     .build();
         }
         return event;
     }
+
+//    todo : findByDateTime
+//    todo : findByDateCategory
 
     @Override
     public void close() throws Exception {

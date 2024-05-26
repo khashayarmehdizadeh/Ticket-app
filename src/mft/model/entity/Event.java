@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import mft.model.entity.enums.EventCategory;
 
 import java.time.LocalDateTime;
 
@@ -15,10 +16,12 @@ import java.time.LocalDateTime;
 public class Event {
     private int id;
     private String name;
-    private String category;
+    private EventCategory category;
     private Double price;
-    private int quantity;
+    private int capacity;
     private LocalDateTime dateTime;
+    private String description;
+
     @Override
      public String toString() {
         return new Gson().toJson(this);

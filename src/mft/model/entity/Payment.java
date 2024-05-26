@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import mft.model.entity.enums.PaymentType;
 
 import java.time.LocalDateTime;
 
@@ -16,6 +17,8 @@ public class Payment {
     private int id;
     private Double amount;
     private LocalDateTime dateTime;
+    private PaymentType paymentType;
+
     @Override
      public String toString() {
         return new Gson().toJson(this);
