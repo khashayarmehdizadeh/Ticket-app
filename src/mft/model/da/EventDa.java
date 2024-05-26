@@ -1,6 +1,6 @@
 package mft.model.da;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
+
 import mft.model.entity.Event;
 import mft.model.tools.CRUD;
 import mft.model.tools.ConnectionProvider;
@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventDa implements CRUD<Event> {
+public class EventDa implements AutoCloseable,CRUD<Event> {
     private Connection connection;
     private PreparedStatement PreparedStatement;
 
@@ -31,7 +31,7 @@ public class EventDa implements CRUD<Event> {
         PreparedStatement.setString(3, event.getCategory());
         PreparedStatement.setDouble(4, event.getPrice());
         PreparedStatement.setInt(5, event.getQuantity());
-        PreparedStatement.setDate(6, event.getDateTime();
+        PreparedStatement.setDate(6, event.getDateTime());
         PreparedStatement.execute();
         return event;
     }
@@ -82,6 +82,27 @@ public class EventDa implements CRUD<Event> {
 
     @Override
     public Event findById(int id) throws Exception {
-        return null;
+        PreparedStatement = connection.prepareStatement("select *from event where id=?");
+        PreparedStatement.setInt(1, id);
+        ResultSet resultSet = PreparedStatement.executeQuery();
+        Event event = null;
+        if (resultSet.next()) {
+            event = Event
+                    .builder()
+                    .id(resultSet.getInt("id"))
+                    .name(resultSet.getString("name"))
+                    .category(resultSet.getString("category"))
+                    .price(resultSet.getDouble("price"))
+                    .quantity(resultSet.getInt("quantity"))
+                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
+                    .build();
+        }
+        return event;
+    }
+
+    @Override
+    public void close() throws Exception {
+        PreparedStatement.close();
+        connection.close();
     }
 }
