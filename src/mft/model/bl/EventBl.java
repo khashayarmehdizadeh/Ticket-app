@@ -9,7 +9,7 @@ import java.util.List;
 public class EventBl implements CRUD<Event> {
     @Override
     public Event save(Event event) throws Exception {
-        try (EventDa eventDa=new EventDa()){
+        try (EventDa eventDa = new EventDa()) {
             eventDa.save(event);
             return event;
 
@@ -19,11 +19,11 @@ public class EventBl implements CRUD<Event> {
 
     @Override
     public Event edit(Event event) throws Exception {
-        try (EventDa eventDa=new EventDa()){
-            if (eventDa.findById(event.getId())!=null){
+        try (EventDa eventDa = new EventDa()) {
+            if (eventDa.findById(event.getId()) != null) {
                 eventDa.edit(event);
                 return event;
-            }else {
+            } else {
                 throw new Exception("Not event found");
             }
 
@@ -33,13 +33,13 @@ public class EventBl implements CRUD<Event> {
 
     @Override
     public Event remove(int id) throws Exception {
-        try (EventDa eventDa=new EventDa()){
-            Event event=eventDa.findById(id);
-            if(event!=null){
+        try (EventDa eventDa = new EventDa()) {
+            Event event = eventDa.findById(id);
+            if (event != null) {
                 eventDa.remove(id);
                 return event;
 
-            }else
+            } else
                 throw new Exception("Not event found");
 
         }
@@ -48,11 +48,11 @@ public class EventBl implements CRUD<Event> {
 
     @Override
     public List<Event> findAll() throws Exception {
-        try (EventDa eventDa=new EventDa()){
-            List<Event> eventList=eventDa.findAll();
-            if (!eventList.isEmpty()){
+        try (EventDa eventDa = new EventDa()) {
+            List<Event> eventList = eventDa.findAll();
+            if (!eventList.isEmpty()) {
                 return eventList;
-            }else {
+            } else {
                 throw new Exception("No event found");
             }
 
@@ -62,6 +62,15 @@ public class EventBl implements CRUD<Event> {
 
     @Override
     public Event findById(int id) throws Exception {
-        return null;
+        try (EventDa eventDa = new EventDa()) {
+            Event event = eventDa.findById(id);
+            if (event != null) {
+                return event;
+
+            } else {
+                throw new Exception("No event found");
+            }
+        }
+
     }
 }

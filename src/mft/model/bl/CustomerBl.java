@@ -57,13 +57,16 @@ public class CustomerBl implements CRUD<Customer> {
 
     @Override
     public Customer findById(int id) throws Exception {
-        try (CustomerDa customerDa=new CustomerDa()){
-            Customer customer=customerDa.findById(id);
-            if (customer!=null){
-
-        }else {
+        try (CustomerDa customerDa = new CustomerDa()) {
+            Customer customer = customerDa.findById(id);
+            if (customer != null) {
+                return customer;
+            } else {
                 throw new NoCustomerFoundException();
+
+
             }
+        }
+
     }
-        return null;
-    }
+}
