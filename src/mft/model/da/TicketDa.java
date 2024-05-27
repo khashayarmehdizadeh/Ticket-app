@@ -14,21 +14,23 @@ import java.util.List;
 public class TicketDa implements AutoCloseable, CRUD<Ticket> {
     private Connection connection;
     private PreparedStatement preparedStatement;
-    public void TicketDa()throws SQLException{
-        connection= ConnectionProvider.getConnectionProvider().getConnection();
+
+    public void TicketDa() throws SQLException {
+        connection = ConnectionProvider.getConnectionProvider().getConnection();
     }
+
     @Override
     public Ticket save(Ticket ticket) throws Exception {
         ticket.setId(ConnectionProvider.getConnectionProvider().getNextId("ticket_SEQ"));
         ticket.setDateTime(LocalDateTime.now());
-        preparedStatement=connection.prepareStatement(
+        preparedStatement = connection.prepareStatement(
                 "insert into ticket(id,event,customer,payment,info,datetime)  values (?,?,?,?,?,timestamp );"
         );
-        preparedStatement.setInt(1,ticket.getId());
-        preparedStatement.setString(2,ticket.getEvent().getName());
-        preparedStatement.setString(3,ticket.getCustomer().getPhoneNumber());
-        preparedStatement.setString(4, String.valueOf(ticket.getPayment().getPaymentType()));
-        preparedStatement.setString(5,ticket.getInfo());
+        preparedStatement.setInt(1, ticket.getId());
+        preparedStatement.setString(2, ticket.getEvent().getName());
+        preparedStatement.setString(3, ticket.getCustomer().getPhoneNumber());
+        preparedStatement.setString(4, String.valueOf(ticket.getPayment().getId()));
+        preparedStatement.setString(5, ticket.getInfo());
         preparedStatement.setTimestamp(6, Timestamp.valueOf(ticket.getDateTime()));
         preparedStatement.execute();
         return ticket;
@@ -36,7 +38,18 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
 
     @Override
     public Ticket edit(Ticket ticket) throws Exception {
-        return null;
+        preparedStatement=connection.prepareStatement(
+                "update ticket set event=?,customer=?,payment=?,info=?,date_time=? where id=?"
+        );
+        preparedStatement.setInt(1,ticket.getId());
+        preparedStatement.setString(2,ticket.getEvent().getName());
+        preparedStatement.setString(3,ticket.getCustomer().getPhoneNumber());
+        preparedStatement.setString(4,String.valueOf(ticket.getPayment().getId()));
+        preparedStatement.setString(5,ticket.getInfo());
+        preparedStatement.setTimestamp(6,Timestamp.valueOf(ticket.getDateTime()));
+        preparedStatement.execute();
+        return ticket;
+
     }
 
     @Override
@@ -56,6 +69,6 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
 
     @Override
     public void close() throws Exception {
-        
+
     }
 }
