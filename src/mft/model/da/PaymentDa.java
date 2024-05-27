@@ -7,6 +7,7 @@ import mft.model.tools.ConnectionProvider;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -28,11 +29,19 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
         preparedStatement.setInt(1,payment.getId());
         preparedStatement.setDouble(2,payment.getAmount());
         preparedStatement.setString(3,payment.getPaymentType().name());
-        return null;
+        preparedStatement.execute();
+        return payment;
     }
 
     @Override
     public Payment edit(Payment payment) throws Exception {
+        preparedStatement=connection.prepareStatement(
+                "update payment set amount=?,date_time=? ,payment_type=? where id=?"
+        );
+        preparedStatement.setInt(1,payment.getId());
+        preparedStatement.setDouble(2,payment.getAmount());
+        preparedStatement.setString(3, String.valueOf(payment.getPaymentType()));
+        preparedStatement.setTimestamp(4,Timestamp.valueOf(payment.getDateTime()));
         return null;
     }
 
