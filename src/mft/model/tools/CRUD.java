@@ -1,6 +1,5 @@
 package mft.model.tools;
 
-import mft.model.entity.Customer;
 import mft.model.entity.Event;
 
 import java.sql.Timestamp;
@@ -14,9 +13,9 @@ public interface CRUD<T> {
     T findById(int id)throws Exception;
 
 
-    //    todo : findByDateTime
+
     Event findByCategory(String category) throws Exception;
 
-    //    todo : findByCategory
+
     Event findByDateTime(Timestamp datetime) throws Exception;
 }
