@@ -15,10 +15,3 @@ public interface CRUD<T> {
 
 
 
-    Event findByCategory(String category) throws Exception;
-
-
-    Event findByDateTime(Timestamp datetime) throws Exception;
-
-    Customer findByFamily(String family) throws Exception;
-}
