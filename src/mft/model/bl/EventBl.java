@@ -48,7 +48,16 @@ public class EventBl implements CRUD<Event> {
 
     @Override
     public List<Event> findAll() throws Exception {
-        return null;
+        try (EventDa eventDa=new EventDa()){
+            List<Event> eventList=eventDa.findAll();
+            if (!eventList.isEmpty()){
+                return eventList;
+            }else {
+                throw new Exception("No event found");
+            }
+
+        }
+
     }
 
     @Override
