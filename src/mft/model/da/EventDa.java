@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventDa implements AutoCloseable,CRUD<Event> {
+public class EventDa implements AutoCloseable, CRUD<Event> {
     private Connection connection;
     private PreparedStatement PreparedStatement;
 
@@ -78,7 +78,8 @@ public class EventDa implements AutoCloseable,CRUD<Event> {
                     .name(resultSet.getString("name"))
                     .category(EventCategory.valueOf(resultSet.getString("category")))
                     .price(resultSet.getDouble("price"))
-                    .capacity(resultSet.getInt("quantity"))
+                    .capacity(resultSet.getInt("capacity"))
+                    .description(resultSet.getString("description"))
                     .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
                     .build();
             EventList.add(event);
@@ -99,15 +100,57 @@ public class EventDa implements AutoCloseable,CRUD<Event> {
                     .name(resultSet.getString("name"))
                     .category(EventCategory.valueOf(resultSet.getString("category")))
                     .price(resultSet.getDouble("price"))
-                    .capacity(resultSet.getInt("quantity"))
+                    .capacity(resultSet.getInt("capacity"))
+                    .description(resultSet.getString("description"))
                     .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
                     .build();
         }
         return event;
     }
 
-//    todo : findByDateTime
-//    todo : findByDateCategory
+    //    todo : findByDateTime
+    @Override
+    public Event findByCategory(String category) throws Exception {
+        PreparedStatement = connection.prepareStatement("select *from event where category=?");
+        PreparedStatement.setString(1, category);
+        ResultSet resultSet = PreparedStatement.executeQuery();
+        Event event = null;
+        if (resultSet.next()) {
+            event = Event
+                    .builder()
+                    .id(resultSet.getInt("id"))
+                    .name(resultSet.getString("name"))
+                    .category(EventCategory.valueOf(resultSet.getString("category")))
+                    .price(resultSet.getDouble("price"))
+                    .capacity(resultSet.getInt("capacity"))
+                    .description(resultSet.getString("description"))
+                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
+                    .build();
+        }
+        return event;
+    }
+
+    //    todo : findByCategory
+    @Override
+    public Event findByDateTime(Timestamp datetime) throws Exception {
+        PreparedStatement = connection.prepareStatement("select *from event where datetime=?");
+        PreparedStatement.setTimestamp(1, datetime);
+        ResultSet resultSet = PreparedStatement.executeQuery();
+        Event event = null;
+        if (resultSet.next()) {
+            event = Event
+                    .builder()
+                    .id(resultSet.getInt("id"))
+                    .name(resultSet.getString("name"))
+                    .category(EventCategory.valueOf(resultSet.getString("category")))
+                    .price(resultSet.getDouble("price"))
+                    .capacity(resultSet.getInt("capacity"))
+                    .description(resultSet.getString("description"))
+                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
+                    .build();
+        }
+        return event;
+    }
 
     @Override
     public void close() throws Exception {
