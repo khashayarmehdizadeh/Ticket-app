@@ -1,5 +1,7 @@
 package mft.model.tools;
 
+import mft.model.entity.Customer;
+
 import java.util.List;
 
 public interface CRUD<T> {
@@ -8,4 +10,6 @@ public interface CRUD<T> {
     T remove(int id) throws Exception;
     List<T> findAll()throws Exception;
     T findById(int id)throws Exception;
+
+    Customer findByFamily(String family) throws Exception;
 }

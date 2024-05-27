@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lombok.extern.log4j.Log4j;
+import mft.model.bl.CustomerBl;
 import mft.model.entity.Customer;
 import mft.model.tools.Validator;
 import mft.view.WindowsManager;
@@ -164,7 +165,7 @@ public class ProfileController implements Initializable {
 
         searchFamilyTxt.setOnKeyReleased((event) -> {
             try {
-                showDataOnTable(PersonBl.getPersonBl().findByFamily(searchFamilyTxt.getText()));
+                showDataOnTable(CustomerBl.getPersonBl().findByFamily(searchFamilyTxt.getText()));
                 log.info("Person Searched By Family : " + searchFamilyTxt.getText());
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, " Persons\n" + e.getMessage());
