@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="update EventDa">
-      <change afterPath="$PROJECT_DIR$/src/mft/model/bl/EventBl.java" afterDir="false" />
+    <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="update EventBl">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mft/model/bl/EventBl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/bl/EventBl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +83,8 @@
       <workItem from="1716658997115" duration="8375000" />
       <workItem from="1716693089896" duration="3768000" />
       <workItem from="1716747640194" duration="209000" />
-      <workItem from="1716748833410" duration="2280000" />
+      <workItem from="1716748833410" duration="2679000" />
+      <workItem from="1716770555624" duration="409000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <option name="closed" value="true" />
@@ -212,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716750689003</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="update EventBl">
+      <option name="closed" value="true" />
+      <created>1716752096132</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1716752096133</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +237,8 @@
     <MESSAGE value="update customerbl" />
     <MESSAGE value="update customerDa" />
     <MESSAGE value="update EventDa" />
-    <option name="LAST_COMMIT_MESSAGE" value="update EventDa" />
+    <MESSAGE value="update EventBl" />
+    <option name="LAST_COMMIT_MESSAGE" value="update EventBl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

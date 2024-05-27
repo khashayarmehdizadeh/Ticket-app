@@ -19,12 +19,31 @@ public class EventBl implements CRUD<Event> {
 
     @Override
     public Event edit(Event event) throws Exception {
-        return null;
+        try (EventDa eventDa=new EventDa()){
+            if (eventDa.findById(event.getId())!=null){
+                eventDa.edit(event);
+                return event;
+            }else {
+                throw new Exception("Not event found");
+            }
+
+        }
+
     }
 
     @Override
     public Event remove(int id) throws Exception {
-        return null;
+        try (EventDa eventDa=new EventDa()){
+            Event event=eventDa.findById(id);
+            if(event!=null){
+                eventDa.remove(id);
+                return event;
+
+            }else
+                throw new Exception("Not event found");
+
+        }
+
     }
 
     @Override
