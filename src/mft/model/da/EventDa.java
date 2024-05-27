@@ -25,7 +25,7 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
         event.setDateTime(LocalDateTime.now());
 
         PreparedStatement = connection.prepareStatement(
-                "insert into event(id,name,category,price,capacity,description,datetime) values (?,?,?,?,?,?,? )"
+                "insert into event(id,name,category,price,capacity,description,datetime) values (?,?,?,?,?,?,timestamp )"
         );
         PreparedStatement.setInt(1, event.getId());
         PreparedStatement.setString(2, event.getName());

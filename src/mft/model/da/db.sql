@@ -37,5 +37,5 @@ create table Ticket
     info        nvarchar2(30),
     payment_id references Payment,
     customer_id references customer,
-    ate_time    timestamp
+    date_time    timestamp
 );
