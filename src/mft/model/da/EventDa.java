@@ -25,7 +25,7 @@ public class EventDa implements AutoCloseable,CRUD<Event> {
         event.setDateTime(LocalDateTime.now());
 
         PreparedStatement = connection.prepareStatement(
-                "insert into event(id,name,category,price,quantity,datetime) values (?,?,?,?,?,? )"
+                "insert into event(id,name,category,price,capacity,description,datetime) values (?,?,?,?,?,?,? )"
         );
         PreparedStatement.setInt(1, event.getId());
         PreparedStatement.setString(2, event.getName());
@@ -33,6 +33,8 @@ public class EventDa implements AutoCloseable,CRUD<Event> {
         PreparedStatement.setDouble(4, event.getPrice());
         PreparedStatement.setInt(5, event.getCapacity());
         PreparedStatement.setTimestamp(6, Timestamp.valueOf(event.getDateTime()));
+        PreparedStatement.setString(7, event.getDescription());
+
         PreparedStatement.execute();
         return event;
     }
@@ -40,7 +42,7 @@ public class EventDa implements AutoCloseable,CRUD<Event> {
     @Override
     public Event edit(Event event) throws Exception {
         PreparedStatement = connection.prepareStatement(
-                "update event set name=?,category=?,price=?,quantity=?, date_time=? where id=?"
+                "update event set name=?,category=?,price=?,capacity=?,description=?, date_time=? where id=?"
         );
         PreparedStatement.setInt(1, event.getId());
         PreparedStatement.setString(2, event.getName());
@@ -48,6 +50,8 @@ public class EventDa implements AutoCloseable,CRUD<Event> {
         PreparedStatement.setDouble(4, event.getPrice());
         PreparedStatement.setInt(5, event.getCapacity());
         PreparedStatement.setTimestamp(6, Timestamp.valueOf(event.getDateTime()));
+        PreparedStatement.setString(7, event.getDescription());
+
         PreparedStatement.execute();
         return event;
     }

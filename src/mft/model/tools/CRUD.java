@@ -11,5 +11,5 @@ public interface CRUD<T> {
     List<T> findAll()throws Exception;
     T findById(int id)throws Exception;
 
-    Customer findByFamily(String family) throws Exception;
+
 }
