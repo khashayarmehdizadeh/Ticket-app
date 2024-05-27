@@ -36,6 +36,6 @@ create table Ticket
     event_id references Event,
     info        nvarchar2(30),
     payment_id references Payment,
-    customer_id refrences customer,
+    customer_id references customer,
     ate_time    timestamp
 );
