@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="update EventBl">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mft/model/bl/EventBl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/bl/EventBl.java" afterDir="false" />
-    </list>
+    <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="update EventBl" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +81,7 @@
       <workItem from="1716693089896" duration="3768000" />
       <workItem from="1716747640194" duration="209000" />
       <workItem from="1716748833410" duration="2679000" />
-      <workItem from="1716770555624" duration="409000" />
+      <workItem from="1716770555624" duration="3603000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <option name="closed" value="true" />
@@ -222,7 +219,31 @@
       <option name="project" value="LOCAL" />
       <updated>1716752096133</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update EventBl">
+      <option name="closed" value="true" />
+      <created>1716771938853</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1716771938853</updated>
+    </task>
+    <task id="LOCAL-00019" summary="update EventBl">
+      <option name="closed" value="true" />
+      <created>1716772398609</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1716772398609</updated>
+    </task>
+    <task id="LOCAL-00020" summary="update EventBl">
+      <option name="closed" value="true" />
+      <created>1716772711865</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1716772711865</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
