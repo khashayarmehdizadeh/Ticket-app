@@ -4,11 +4,9 @@ import mft.model.entity.Ticket;
 import mft.model.tools.CRUD;
 import mft.model.tools.ConnectionProvider;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TicketDa implements AutoCloseable, CRUD<Ticket> {
@@ -54,11 +52,24 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
 
     @Override
     public Ticket remove(int id) throws Exception {
+        preparedStatement=connection.prepareStatement(
+                "delete from ticket where id=?"
+        );
+        preparedStatement.setInt(1,id);
+        preparedStatement.execute();
         return null;
     }
 
     @Override
     public List<Ticket> findAll() throws Exception {
+        List<Ticket> ticketList=new ArrayList<>();
+        preparedStatement=connection.prepareStatement("select *from ticket order by id");
+        ResultSet resultSet=preparedStatement.executeQuery();
+        while (resultSet.next()){
+            Ticket ticket=Ticket
+                    .builder()
+                    .build()
+        }
         return null;
     }
 
@@ -69,6 +80,8 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
 
     @Override
     public void close() throws Exception {
+        preparedStatement.close();
+        connection.close();
 
     }
 }
