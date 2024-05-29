@@ -1,9 +1,5 @@
 package mft.model.tools;
 
-import mft.model.entity.Customer;
-import mft.model.entity.Event;
-
-import java.sql.Timestamp;
 import java.util.List;
 
 public interface CRUD<T> {
@@ -12,6 +8,7 @@ public interface CRUD<T> {
     T remove(int id) throws Exception;
     List<T> findAll()throws Exception;
     T findById(int id)throws Exception;
+    }
 
 
 

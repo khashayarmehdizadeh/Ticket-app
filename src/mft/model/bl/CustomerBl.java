@@ -19,7 +19,7 @@ public class CustomerBl implements CRUD<Customer> {
     @Override
     public Customer edit(Customer customer) throws Exception {
         try (CustomerDa customerDa = new CustomerDa()) {
-            if (customerDa.findByFamily(customer.getFamily()) != null) {
+            if (customerDa.findById(customer.getId()) != null) {
                 customerDa.edit(customer);
                 return customer;
 
