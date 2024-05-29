@@ -1,11 +1,12 @@
 package mft.model.da;
 
-import com.sun.java.accessibility.util.EventID;
+import mft.model.entity.Customer;
+import mft.model.entity.Event;
+import mft.model.entity.Payment;
 import mft.model.entity.Ticket;
 import mft.model.tools.CRUD;
 import mft.model.tools.ConnectionProvider;
 
-import java.awt.*;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -27,9 +28,9 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
                 "insert into ticket(id,event,customer,payment,info,datetime)  values (?,?,?,?,?,timestamp );"
         );
         preparedStatement.setInt(1, ticket.getId());
-        preparedStatement.setString(2, ticket.getEvent().getName());
-        preparedStatement.setString(3, ticket.getCustomer().getPhoneNumber());
-        preparedStatement.setString(4, String.valueOf(ticket.getPayment().getId()));
+        preparedStatement.setInt(2, ticket.getEvent().getId());
+        preparedStatement.setInt(3, ticket.getCustomer().getId());
+        preparedStatement.setInt(4, ticket.getPayment().getId());
         preparedStatement.setString(5, ticket.getInfo());
         preparedStatement.setTimestamp(6, Timestamp.valueOf(ticket.getDateTime()));
         preparedStatement.execute();
@@ -38,15 +39,15 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
 
     @Override
     public Ticket edit(Ticket ticket) throws Exception {
-        preparedStatement=connection.prepareStatement(
+        preparedStatement = connection.prepareStatement(
                 "update ticket set event=?,customer=?,payment=?,info=?,date_time=? where id=?"
         );
-        preparedStatement.setInt(1,ticket.getId());
-        preparedStatement.setString(2,ticket.getEvent().getName());
-        preparedStatement.setString(3, String.valueOf(ticket.getCustomer().getId()));
-        preparedStatement.setString(4,String.valueOf(ticket.getPayment().getId()));
-        preparedStatement.setString(5,ticket.getInfo());
-        preparedStatement.setTimestamp(6,Timestamp.valueOf(ticket.getDateTime()));
+        preparedStatement.setInt(1, ticket.getId());
+        preparedStatement.setInt(2, ticket.getEvent().getId());
+        preparedStatement.setInt(3, ticket.getCustomer().getId());
+        preparedStatement.setInt(4, ticket.getPayment().getId());
+        preparedStatement.setString(5, ticket.getInfo());
+        preparedStatement.setTimestamp(6, Timestamp.valueOf(ticket.getDateTime()));
         preparedStatement.execute();
         return ticket;
 
@@ -54,10 +55,10 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
 
     @Override
     public Ticket remove(int id) throws Exception {
-        preparedStatement=connection.prepareStatement(
+        preparedStatement = connection.prepareStatement(
                 "delete from ticket where id=?"
         );
-        preparedStatement.setInt(1,id);
+        preparedStatement.setInt(1, id);
         preparedStatement.execute();
         return null;
     }
@@ -65,26 +66,43 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
     @Override
     //todo
     public List<Ticket> findAll() throws Exception {
-        List<Ticket> ticketList=new ArrayList<>();
-        preparedStatement=connection.prepareStatement("select *from ticket order by id");
-        ResultSet resultSet=preparedStatement.executeQuery();
-        while (resultSet.next()){
-            Ticket ticket=Ticket
+        List<Ticket> ticketList = new ArrayList<>();
+        preparedStatement = connection.prepareStatement("select *from ticket order by id");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Ticket ticket = Ticket
                     .builder()
                     .id(resultSet.getInt("id"))
                     .info(resultSet.getString("info"))
-                    .event()
-
-
+                    .customer(Customer.builder().id(resultSet.getInt("customer")).build())
+                    .event(Event.builder().id(resultSet.getInt("event")).build())
+                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
+                    .payment(Payment.builder().id(resultSet.getInt("payment")).build())
                     .build();
+            ticketList.add(ticket);
         }
-        return null;
+        return ticketList;
     }
 
     @Override
     public Ticket findById(int id) throws Exception {
-        preparedStatement=connection.prepareStatement("select*from ticket where id=?");
-        return null;
+        preparedStatement = connection.prepareStatement("select*from ticket where id=?");
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        Ticket ticket = null;
+        if (resultSet.next()) {
+            ticket = Ticket
+                    .builder()
+                    .id(resultSet.getInt("id"))
+                    .info(resultSet.getString("info"))
+                    .customer(Customer.builder().id(resultSet.getInt("customer")).build())
+                    .event(Event.builder().id(resultSet.getInt("event")).build())
+                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
+                    .payment(Payment.builder().id(resultSet.getInt("payment")).build())
+                    .build();
+        }
+        return ticket;
+
     }
 
     @Override
