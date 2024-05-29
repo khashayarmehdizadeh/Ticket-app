@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="TicketDa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mft/model/da/TicketDa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/TicketDa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mft/model/bl/CustomerBl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/bl/CustomerBl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mft/model/bl/PaymentBl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/bl/PaymentBl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,7 @@
       <workItem from="1716849638636" duration="2764000" />
       <workItem from="1716852878909" duration="1827000" />
       <workItem from="1716937588143" duration="181000" />
-      <workItem from="1716942490337" duration="2058000" />
+      <workItem from="1716942490337" duration="4688000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <option name="closed" value="true" />
@@ -388,7 +389,31 @@
       <option name="project" value="LOCAL" />
       <updated>1716944626219</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="TicketDa">
+      <option name="closed" value="true" />
+      <created>1716947546066</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1716947546066</updated>
+    </task>
+    <task id="LOCAL-00039" summary="TicketDa">
+      <option name="closed" value="true" />
+      <created>1716947945431</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1716947945431</updated>
+    </task>
+    <task id="LOCAL-00040" summary="TicketDa">
+      <option name="closed" value="true" />
+      <created>1716948125032</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1716948125032</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
