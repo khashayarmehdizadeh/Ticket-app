@@ -23,7 +23,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
         customer.setId(ConnectionProvider.getConnectionProvider().getNextId("customer_SEQ"));
 
         preparedStatement = connection.prepareStatement(
-                "INSERT INTO customer (id,name,family,email,phoneNumber,) VALUES (?,?,?,?,?)"
+                "INSERT INTO customer (id,name,family,email,phoneNumber) VALUES (?,?,?,?,?)"
         );
         preparedStatement.setInt(1, customer.getId());
         preparedStatement.setString(2, customer.getName());
@@ -84,7 +84,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
 
     @Override
     public Customer findById(int id) throws Exception {
-        preparedStatement = connection.prepareStatement("select from customer where id");
+        preparedStatement = connection.prepareStatement("select *from customer where id=?");
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         Customer customer = null;
