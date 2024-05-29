@@ -108,7 +108,6 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
         return event;
     }
 
-    //    todo : findByDateTime
 
     public Event findByCategory(String category) throws Exception {
         PreparedStatement = connection.prepareStatement("select *from event where category=?");
@@ -130,7 +129,6 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
         return event;
     }
 
-    //    todo : findByCategory
 
     public Event findByDateTime(Timestamp datetime) throws Exception {
         PreparedStatement = connection.prepareStatement("select *from event where datetime=?");
