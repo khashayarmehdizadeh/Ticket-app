@@ -109,7 +109,7 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
     }
 
     //    todo : findByDateTime
-    @Override
+
     public Event findByCategory(String category) throws Exception {
         PreparedStatement = connection.prepareStatement("select *from event where category=?");
         PreparedStatement.setString(1, category);
@@ -131,7 +131,7 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
     }
 
     //    todo : findByCategory
-    @Override
+
     public Event findByDateTime(Timestamp datetime) throws Exception {
         PreparedStatement = connection.prepareStatement("select *from event where datetime=?");
         PreparedStatement.setTimestamp(1, datetime);

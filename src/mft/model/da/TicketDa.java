@@ -1,9 +1,11 @@
 package mft.model.da;
 
+import com.sun.java.accessibility.util.EventID;
 import mft.model.entity.Ticket;
 import mft.model.tools.CRUD;
 import mft.model.tools.ConnectionProvider;
 
+import java.awt.*;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
         );
         preparedStatement.setInt(1,ticket.getId());
         preparedStatement.setString(2,ticket.getEvent().getName());
-        preparedStatement.setString(3,ticket.getCustomer().getPhoneNumber());
+        preparedStatement.setString(3, String.valueOf(ticket.getCustomer().getId()));
         preparedStatement.setString(4,String.valueOf(ticket.getPayment().getId()));
         preparedStatement.setString(5,ticket.getInfo());
         preparedStatement.setTimestamp(6,Timestamp.valueOf(ticket.getDateTime()));
@@ -61,6 +63,7 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
     }
 
     @Override
+    //todo
     public List<Ticket> findAll() throws Exception {
         List<Ticket> ticketList=new ArrayList<>();
         preparedStatement=connection.prepareStatement("select *from ticket order by id");
@@ -68,13 +71,19 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
         while (resultSet.next()){
             Ticket ticket=Ticket
                     .builder()
-                    .build()
+                    .id(resultSet.getInt("id"))
+                    .info(resultSet.getString("info"))
+                    .event()
+
+
+                    .build();
         }
         return null;
     }
 
     @Override
     public Ticket findById(int id) throws Exception {
+        preparedStatement=connection.prepareStatement("select*from ticket where id=?");
         return null;
     }
 
