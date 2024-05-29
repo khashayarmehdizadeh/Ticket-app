@@ -24,7 +24,11 @@ create table Payment
 (
     id        number primary key,
     amount    number,
-    payment_type references payment,
+    name nvarchar2(30),
+    event_category nvarchar2(30),
+    price        number,
+    capacity number,
+    description nvarchar2(30),
     date_time timestamp
 );
 create sequence Payment_seq start with 1 increment by 1;
