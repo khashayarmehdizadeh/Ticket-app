@@ -82,4 +82,15 @@ public class CustomerBl implements CRUD<Customer> {
             }
         }
     }
+
+    public Customer findByPhoneNumber(String phoneNumber) throws Exception {
+        try (CustomerDa customerDa = new CustomerDa()) {
+            Customer customer = customerDa.findByFamily(phoneNumber);
+            if (customer != null) {
+                return customer;
+            } else {
+                throw new NoCustomerFoundException();
+            }
+        }
+    }
 }
