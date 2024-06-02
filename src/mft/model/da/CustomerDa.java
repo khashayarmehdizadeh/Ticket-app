@@ -124,6 +124,24 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
         return customer;
     }
 
+    public Customer findByPhoneNUmber(String phoneNumber)throws Exception{
+        preparedStatement=connection.prepareStatement("select *from customer where  PHONENUMBER=?");
+        preparedStatement.setString(1,phoneNumber);
+        ResultSet resultSet= preparedStatement.executeQuery();
+        Customer customer=null;
+        if (resultSet.next()){
+            customer=Customer
+                    .builder()
+                    .id(resultSet.getInt("id"))
+                    .name(resultSet.getString("name"))
+                    .family(resultSet.getString("family"))
+                    .phoneNumber(resultSet.getString("phoneNumber"))
+                    .email(resultSet.getString("email"))
+                    .build();
+        }
+        return customer;
+        }
+
     @Override
     public void close() throws Exception {
         preparedStatement.close();

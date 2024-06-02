@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="PaymentBl">
+    <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mft/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mft/model/da/CustomerDa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/CustomerDa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mft/model/tools/ConnectionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/tools/ConnectionProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mft/test/CustomerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/test/CustomerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +127,7 @@
       <workItem from="1717005734984" duration="2493000" />
       <workItem from="1717010244424" duration="2139000" />
       <workItem from="1717018752971" duration="275000" />
-      <workItem from="1717019037177" duration="351000" />
+      <workItem from="1717019037177" duration="724000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <option name="closed" value="true" />
@@ -500,14 +497,21 @@
       <option name="project" value="LOCAL" />
       <updated>1717011592136</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="update">
+      <option name="closed" value="true" />
+      <created>1717019719785</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1717019719785</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update" />
     <MESSAGE value="a" />
     <MESSAGE value="db" />
     <MESSAGE value="Da" />
@@ -522,7 +526,8 @@
     <MESSAGE value="PaymendDa" />
     <MESSAGE value="TicketDa" />
     <MESSAGE value="PaymentBl" />
-    <option name="LAST_COMMIT_MESSAGE" value="PaymentBl" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

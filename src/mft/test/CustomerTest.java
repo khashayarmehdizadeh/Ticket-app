@@ -14,8 +14,7 @@ public class CustomerTest {
                         .email("mzkhashayar@gmail")
                         .build();
         CustomerDa customerDa=new CustomerDa();
-        customerDa.save(customer);
-
+        Customer save = customerDa.save(customer);
 
 
         System.out.println("customer saved");
