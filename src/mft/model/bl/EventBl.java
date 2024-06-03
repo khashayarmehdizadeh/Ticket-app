@@ -1,5 +1,6 @@
 package mft.model.bl;
 
+import lombok.Getter;
 import mft.model.da.EventDa;
 import mft.model.entity.Event;
 import mft.model.tools.CRUD;
@@ -7,6 +8,13 @@ import mft.model.tools.CRUD;
 import java.util.List;
 
 public class EventBl implements CRUD<Event> {
+    @Getter
+    private static EventBl eventBl = new EventBl();
+
+
+    private EventBl() {
+    }
+
     @Override
     public Event save(Event event) throws Exception {
         try (EventDa eventDa = new EventDa()) {

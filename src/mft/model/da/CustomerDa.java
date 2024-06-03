@@ -14,10 +14,10 @@ import java.util.List;
 
 @Log4j
 public class CustomerDa implements AutoCloseable, CRUD<Customer> {
-    private Connection connection;
+    private  final Connection connection;
     private PreparedStatement preparedStatement;
 
-    public void CustomerDa() throws SQLException {
+    public CustomerDa() throws SQLException {
         connection = ConnectionProvider.getConnectionProvider().getConnection();
     }
 
