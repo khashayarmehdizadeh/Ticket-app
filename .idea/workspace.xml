@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/mft/model/da/Database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mft/model/bl/CustomerBl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/bl/CustomerBl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mft/model/bl/EventBl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/bl/EventBl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mft/model/da/CustomerDa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/CustomerDa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mft/model/da/EventDa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/EventDa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mft/model/da/db.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mft/model/tools/ConnectionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/tools/ConnectionProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mft/test/CustomerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/test/CustomerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,6 +97,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Database.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/src/mft/model/da/Database.sql" />
+      <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
     <configuration name="db.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/mft/model/da/db.sql" />
       <script-mode>FILE</script-mode>
@@ -99,6 +110,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.CustomerTest" />
+        <item itemvalue="Database Script.Database.sql" />
         <item itemvalue="Database Script.db.sql" />
       </list>
     </recent_temporary>
@@ -134,15 +146,8 @@
       <workItem from="1717306962141" duration="2491000" />
       <workItem from="1717369522954" duration="134000" />
       <workItem from="1717369694972" duration="384000" />
-      <workItem from="1717375943283" duration="1748000" />
-    </task>
-    <task id="LOCAL-00002" summary="db">
-      <option name="closed" value="true" />
-      <created>1716302487831</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1716302487831</updated>
+      <workItem from="1717375943283" duration="6024000" />
+      <workItem from="1717398477929" duration="1759000" />
     </task>
     <task id="LOCAL-00003" summary="db">
       <option name="closed" value="true" />
@@ -528,7 +533,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717307984796</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="update">
+      <option name="closed" value="true" />
+      <created>1717381620875</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1717381620875</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,6 +573,14 @@
           <line>11</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

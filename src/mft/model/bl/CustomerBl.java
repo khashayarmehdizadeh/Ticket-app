@@ -1,5 +1,6 @@
 package mft.model.bl;
 
+import lombok.Getter;
 import mft.controller.exceptions.NoCustomerFoundException;
 import mft.model.da.CustomerDa;
 import mft.model.entity.Customer;
@@ -7,8 +8,11 @@ import mft.model.tools.CRUD;
 
 import java.util.List;
 
+
 public class CustomerBl implements CRUD<Customer> {
-    private static CustomerBl customerBl=new CustomerBl();
+    @Getter
+    private static CustomerBl customerBl =new CustomerBl();
+
     private CustomerBl(){
 
     }
@@ -18,11 +22,7 @@ public class CustomerBl implements CRUD<Customer> {
     @Override
     public Customer save(Customer customer) throws Exception {
         try (CustomerDa customerDa = new CustomerDa()) {
-            if(customerDa.findByPhoneNUmber(customer.getPhoneNumber()) == null){
-                customerDa.save(customer);
-            }else{
-//                throw new DuplicatPhoneNumberException();
-            }
+            customerDa.save(customer);
             return customer;
         }
     }

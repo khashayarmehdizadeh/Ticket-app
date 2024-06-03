@@ -1,6 +1,7 @@
 package mft.model.da;
 
 
+import lombok.extern.log4j.Log4j;
 import mft.model.entity.Event;
 import mft.model.entity.enums.EventCategory;
 import mft.model.tools.CRUD;
@@ -10,31 +11,30 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
+@Log4j
 public class EventDa implements AutoCloseable, CRUD<Event> {
-    private Connection connection;
+    private final Connection connection;
     private PreparedStatement PreparedStatement;
 
-    public void EventDa() throws SQLException {
+    public  EventDa() throws SQLException {
         connection = ConnectionProvider.getConnectionProvider().getConnection();
     }
 
     @Override
     public Event save(Event event) throws Exception {
-        event.setId(ConnectionProvider.getConnectionProvider().getNextId("event_SEQ"));
+        event.setId(ConnectionProvider.getConnectionProvider().getNextId("EVENT_SEQ"));
         event.setDateTime(LocalDateTime.now());
 
         PreparedStatement = connection.prepareStatement(
-                "insert into event(id,name,category,price,capacity,description,datetime) values (?,?,?,?,?,?,timestamp )"
+                "INSERT INTO EVENT(ID,NAME,CATEGORY,PRICE,CAPACITY,DESCRIPTION,datetime) VALUES (?,?,?,?,?,?,timestamp )"
         );
         PreparedStatement.setInt(1, event.getId());
         PreparedStatement.setString(2, event.getName());
         PreparedStatement.setString(3, event.getCategory().name());
         PreparedStatement.setDouble(4, event.getPrice());
         PreparedStatement.setInt(5, event.getCapacity());
-        PreparedStatement.setTimestamp(6, Timestamp.valueOf(event.getDateTime()));
-        PreparedStatement.setString(7, event.getDescription());
-
+        PreparedStatement.setString(6, event.getDescription());
+        PreparedStatement.setTimestamp(7, Timestamp.valueOf(event.getDateTime()));
         PreparedStatement.execute();
         return event;
     }
@@ -42,7 +42,8 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
     @Override
     public Event edit(Event event) throws Exception {
         PreparedStatement = connection.prepareStatement(
-                "update event set name=?,category=?,price=?,capacity=?,description=?, date_time=? where id=?"
+                "UPDATE event SET name=?,category=?,price=?,capacity=?,description=?, date_time=? where id=?"
+
         );
         PreparedStatement.setInt(1, event.getId());
         PreparedStatement.setString(2, event.getName());

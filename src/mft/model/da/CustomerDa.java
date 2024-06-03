@@ -26,13 +26,13 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
         customer.setId(ConnectionProvider.getConnectionProvider().getNextId("customer_SEQ"));
 
         preparedStatement = connection.prepareStatement(
-                "insert into CUSTOMER(id,name,family,email,phoneNumber) VALUES (?,?,?,?,?)"
+                "insert into CUSTOMER(ID,NAME,FAMILY,EMAIL) VALUES (?,?,?,?)"
         );
         preparedStatement.setInt(1, customer.getId());
         preparedStatement.setString(2, customer.getName());
-        preparedStatement.setString(3, customer.getEmail());
-        preparedStatement.setString(4, customer.getFamily());
-        preparedStatement.setString(5, customer.getPhoneNumber());
+        preparedStatement.setString(3, customer.getFamily());
+        preparedStatement.setString(4, customer.getEmail());
+//        preparedStatement.setString(5, customer.getPhoneNumber());
         preparedStatement.execute();
         return customer;
     }
@@ -40,7 +40,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
     @Override
     public Customer edit(Customer customer) throws Exception {
         preparedStatement = connection.prepareStatement(
-                "UPDATE CUSTOMER SET family=?, name=?,email=? ,phoneNumber=? WHERE ID=?"
+                "UPDATE CUSTOMER SET family=?, name=?,email=? ,PHONE_NUMBER=? WHERE ID=?"
         );
         preparedStatement.setInt(1, customer.getId());
         preparedStatement.setString(2, customer.getName());
