@@ -24,12 +24,12 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
         payment.setId(ConnectionProvider.getConnectionProvider().getNextId("payment_SEQ"));
         payment.setDateTime(LocalDateTime.now());
         preparedStatement = connection.prepareStatement(
-                "INSERT INTO PAYMENT(id,amount,datetime,paymentType) VALUES (?,?,?,timestamp )"
+                "INSERT INTO PAYMENT(ID,AMOUNT,DATE_TIME,PAYMENT_TYPE) VALUES (?,?,?,timestamp )"
         );
         preparedStatement.setInt(1, payment.getId());
         preparedStatement.setDouble(2, payment.getAmount());
-        preparedStatement.setTimestamp(3,Timestamp.valueOf(payment.getDateTime()));
-        preparedStatement.setString(4, payment.getPaymentType().name());
+        preparedStatement.setString(3, payment.getPaymentType().name());
+        preparedStatement.setTimestamp(4,Timestamp.valueOf(payment.getDateTime()));
         preparedStatement.execute();
         return payment;
     }

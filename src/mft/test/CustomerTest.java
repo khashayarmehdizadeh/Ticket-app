@@ -9,11 +9,12 @@ import java.time.LocalDateTime;
 public class CustomerTest {
     public static void main(String[] args) throws Exception {
         Payment payment =
-                Payment.builder()
+                Payment
+                        .builder()
 
-                        .amount(25.000)
-                        .dateTime(LocalDateTime.now())
+                        .amount(1.200)
                         .paymentType(PaymentType.Cash)
+                        .dateTime(LocalDateTime.now())
                         .build();
 
 
