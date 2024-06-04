@@ -1,5 +1,6 @@
 package mft.model.bl;
 
+import lombok.Getter;
 import mft.controller.exceptions.NoPaymentFoundException;
 import mft.model.da.PaymentDa;
 import mft.model.entity.Payment;
@@ -7,7 +8,14 @@ import mft.model.tools.CRUD;
 
 import java.util.List;
 
+
 public class PaymentBl implements CRUD<Payment> {
+    @Getter
+    private static  PaymentBl paymentBl=new PaymentBl();
+
+    private  PaymentBl(){
+
+    }
     @Override
     public Payment save(Payment payment) throws Exception {
         try (PaymentDa paymentDa = new PaymentDa()) {

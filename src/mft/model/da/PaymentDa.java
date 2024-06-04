@@ -1,5 +1,6 @@
 package mft.model.da;
 
+import lombok.extern.log4j.Log4j;
 import mft.model.entity.Payment;
 import mft.model.entity.enums.PaymentType;
 import mft.model.tools.CRUD;
@@ -9,12 +10,12 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
+@Log4j
 public class PaymentDa implements AutoCloseable, CRUD<Payment> {
-    private Connection connection;
+    private final Connection connection;
     private PreparedStatement preparedStatement;
 
-    public void PaymendDa() throws SQLException {
+    public  PaymentDa() throws SQLException {
         connection = ConnectionProvider.getConnectionProvider().getConnection();
     }
 
@@ -23,11 +24,12 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
         payment.setId(ConnectionProvider.getConnectionProvider().getNextId("payment_SEQ"));
         payment.setDateTime(LocalDateTime.now());
         preparedStatement = connection.prepareStatement(
-                "insert into payment(id,amount,datetime,paymentType) vvalues (?,?,?,?)"
+                "INSERT INTO PAYMENT(id,amount,datetime,paymentType) VALUES (?,?,?,timestamp )"
         );
         preparedStatement.setInt(1, payment.getId());
         preparedStatement.setDouble(2, payment.getAmount());
-        preparedStatement.setString(3, payment.getPaymentType().name());
+        preparedStatement.setTimestamp(3,Timestamp.valueOf(payment.getDateTime()));
+        preparedStatement.setString(4, payment.getPaymentType().name());
         preparedStatement.execute();
         return payment;
     }
