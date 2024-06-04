@@ -8,7 +8,6 @@ import mft.model.tools.CRUD;
 import mft.model.tools.ConnectionProvider;
 
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 @Log4j
@@ -22,11 +21,11 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
 
     @Override
     public Event save(Event event) throws Exception {
-        event.setId(ConnectionProvider.getConnectionProvider().getNextId("EVENT_SEQ"));
-        event.setDateTime(LocalDateTime.now());
+        event.setId(ConnectionProvider.getConnectionProvider().getNextId("event_SEQ"));
+        //event.setDateTime(LocalDateTime.now());
 
         PreparedStatement = connection.prepareStatement(
-                "INSERT INTO EVENT(ID,NAME,CATEGORY,PRICE,CAPACITY,DESCRIPTION,datetime) VALUES (?,?,?,?,?,?,timestamp )"
+                "INSERT INTO EVENT(ID,NAME,CATEGORY,PRICE,CAPACITY,DESCRIPTION) VALUES (?,?,?,?,?,? )"
         );
         PreparedStatement.setInt(1, event.getId());
         PreparedStatement.setString(2, event.getName());
@@ -34,7 +33,7 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
         PreparedStatement.setDouble(4, event.getPrice());
         PreparedStatement.setInt(5, event.getCapacity());
         PreparedStatement.setString(6, event.getDescription());
-        PreparedStatement.setTimestamp(7, Timestamp.valueOf(event.getDateTime()));
+       // PreparedStatement.setTimestamp(7, Timestamp.valueOf(event.getDateTime()));
         PreparedStatement.execute();
         return event;
     }

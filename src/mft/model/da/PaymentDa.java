@@ -24,12 +24,13 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
         payment.setId(ConnectionProvider.getConnectionProvider().getNextId("payment_SEQ"));
         payment.setDateTime(LocalDateTime.now());
         preparedStatement = connection.prepareStatement(
-                "INSERT INTO PAYMENT(ID,AMOUNT,DATE_TIME,PAYMENT_TYPE) VALUES (?,?,?,timestamp )"
+                "INSERT INTO PAYMENT(ID,AMOUNT,DATE_TIME,PAYMENT_TYPE) values (?,?,CURRENT_TIMESTAMP ,?)"
+
         );
         preparedStatement.setInt(1, payment.getId());
         preparedStatement.setDouble(2, payment.getAmount());
-        preparedStatement.setString(3, payment.getPaymentType().name());
-        preparedStatement.setTimestamp(4,Timestamp.valueOf(payment.getDateTime()));
+        preparedStatement.setTimestamp(3,Timestamp.valueOf(payment.getDateTime()));
+        preparedStatement.setString(4, payment.getPaymentType().name());
         preparedStatement.execute();
         return payment;
     }
@@ -37,12 +38,12 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
     @Override
     public Payment edit(Payment payment) throws Exception {
         preparedStatement = connection.prepareStatement(
-                "update payment set amount=?,date_time=? ,payment_type=? where id=?"
+                "UPDATE PAYMENT SET AMOUNT=?,DATE_TIME=? ,PAYMENT_TYPE=? WHERE ID=?"
         );
         preparedStatement.setInt(1, payment.getId());
         preparedStatement.setDouble(2, payment.getAmount());
-        preparedStatement.setString(3, String.valueOf(payment.getPaymentType()));
         preparedStatement.setTimestamp(4, Timestamp.valueOf(payment.getDateTime()));
+        preparedStatement.setString(3, String.valueOf(payment.getPaymentType()));
         preparedStatement.execute();
         return payment;
     }
@@ -50,7 +51,7 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
     @Override
     public Payment remove(int id) throws Exception {
         preparedStatement = connection.prepareStatement(
-                "delete from payment where id=?"
+                "DELETE FROM PAYMENT WHERE ID=?"
         );
         preparedStatement.setInt(1, id);
         preparedStatement.execute();

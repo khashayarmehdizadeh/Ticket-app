@@ -26,13 +26,13 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
         customer.setId(ConnectionProvider.getConnectionProvider().getNextId("customer_SEQ"));
 
         preparedStatement = connection.prepareStatement(
-                "insert into CUSTOMER(ID,NAME,FAMILY,EMAIL) VALUES (?,?,?,?)"
+                "insert into CUSTOMER(ID,NAME,FAMILY,EMAIL,PHONE_NUMBER) VALUES (?,?,?,?,?)"
         );
         preparedStatement.setInt(1, customer.getId());
         preparedStatement.setString(2, customer.getName());
         preparedStatement.setString(3, customer.getFamily());
         preparedStatement.setString(4, customer.getEmail());
-//        preparedStatement.setString(5, customer.getPhoneNumber());
+        preparedStatement.setString(5, customer.getPhoneNumber());
         preparedStatement.execute();
         return customer;
     }

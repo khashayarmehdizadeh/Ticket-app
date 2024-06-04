@@ -22,7 +22,7 @@ create table Event
 create sequence Event_seq start with 1 increment by 1;
 
 
-create table Payment
+create table PAYMENT
 (
     id        number primary key,
     amount    number,
