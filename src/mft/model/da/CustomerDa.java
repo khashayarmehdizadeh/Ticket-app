@@ -32,7 +32,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
         preparedStatement.setString(2, customer.getName());
         preparedStatement.setString(3, customer.getFamily());
         preparedStatement.setString(4, customer.getEmail());
-        preparedStatement.setString(5, customer.getPhoneNumber());
+        preparedStatement.setString(5, customer.getPhone_number());
         preparedStatement.execute();
         return customer;
     }
@@ -46,7 +46,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
         preparedStatement.setString(2, customer.getName());
         preparedStatement.setString(3, customer.getEmail());
         preparedStatement.setString(4, customer.getFamily());
-        preparedStatement.setString(5, customer.getPhoneNumber());
+        preparedStatement.setString(5, customer.getPhone_number());
         preparedStatement.execute();
         return customer;
     }
@@ -76,7 +76,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
                     .name(resultSet.getString("name"))
                     .family(resultSet.getString("family"))
                     .email(resultSet.getString("email"))
-                    .phoneNumber(resultSet.getString("phoneNumber"))
+                    .phone_number(resultSet.getString("phone_number"))
                     .build();
 
             customerList.add(customer);
@@ -98,7 +98,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
                     .name(resultSet.getString("name"))
                     .family(resultSet.getString("family"))
                     .email(resultSet.getString("email"))
-                    .phoneNumber(resultSet.getString("phoneNumber"))
+                    .phone_number(resultSet.getString("phone_number"))
                     .build();
 
         }
@@ -118,7 +118,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
                     .name(resultSet.getString("name"))
                     .family(resultSet.getString("family"))
                     .email(resultSet.getString("email"))
-                    .phoneNumber(resultSet.getString("phoneNumber"))
+                    .phone_number(resultSet.getString("phoneNumber"))
                     .build();
         }
         return customer;
@@ -137,7 +137,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
                     .family(resultSet.getString("family"))
 
                     .email(resultSet.getString("email"))
-                    .phoneNumber(resultSet.getString("phoneNumber"))
+                    .phone_number(resultSet.getString("phoneNumber"))
                     .build();
         }
         return customer;
@@ -154,7 +154,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
                     .id(resultSet.getInt("id"))
                     .name(resultSet.getString("name"))
                     .family(resultSet.getString("family"))
-                    .phoneNumber(resultSet.getString("phoneNumber"))
+                    .phone_number(resultSet.getString("phoneNumber"))
                     .email(resultSet.getString("email"))
                     .build();
         }
