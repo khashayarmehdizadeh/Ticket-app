@@ -1,5 +1,6 @@
 package mft.model.da;
 
+import lombok.extern.log4j.Log4j;
 import mft.model.entity.Customer;
 import mft.model.entity.Event;
 import mft.model.entity.Payment;
@@ -11,12 +12,12 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
+@Log4j
 public class TicketDa implements AutoCloseable, CRUD<Ticket> {
-    private Connection connection;
+    private final Connection connection;
     private PreparedStatement preparedStatement;
 
-    public void TicketDa() throws SQLException {
+    public  TicketDa() throws SQLException {
         connection = ConnectionProvider.getConnectionProvider().getConnection();
     }
 

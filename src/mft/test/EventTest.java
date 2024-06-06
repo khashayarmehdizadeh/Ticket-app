@@ -23,7 +23,7 @@ public class EventTest {
                 .category(EventCategory.Jurassic)
                 .price(150.000)
                 .capacity(1000)
-                .description("sunday")
+                .description("monday")
                 //.dateTime(LocalDateTime.now())
 
                 .build();

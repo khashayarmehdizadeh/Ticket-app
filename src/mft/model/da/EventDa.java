@@ -21,7 +21,7 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
 
     @Override
     public Event save(Event event) throws Exception {
-        event.setId(ConnectionProvider.getConnectionProvider().getNextId("event_SEQ"));
+        event.setId(ConnectionProvider.getConnectionProvider().getNextId("EVENT_SEQ"));
         //event.setDateTime(LocalDateTime.now());
 
         PreparedStatement = connection.prepareStatement(

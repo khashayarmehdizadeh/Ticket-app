@@ -1,5 +1,6 @@
 package mft.model.bl;
 
+import lombok.Getter;
 import mft.controller.exceptions.NoTicketFoundException;
 import mft.model.da.TicketDa;
 import mft.model.entity.Ticket;
@@ -8,6 +9,13 @@ import mft.model.tools.CRUD;
 import java.util.List;
 
 public class TicketBl implements CRUD<Ticket> {
+    @Getter
+    private static TicketBl ticketBl = new TicketBl();
+
+    private TicketBl() {
+
+    }
+
     @Override
     public Ticket save(Ticket ticket) throws Exception {
         try (TicketDa ticketDa = new TicketDa()) {
