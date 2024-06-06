@@ -26,7 +26,7 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
         ticket.setId(ConnectionProvider.getConnectionProvider().getNextId("ticket_SEQ"));
         ticket.setDateTime(LocalDateTime.now());
         preparedStatement = connection.prepareStatement(
-                "insert into ticket(id,event,customer,payment,info,datetime)  values (?,?,?,?,?,timestamp );"
+                "INSERT INTO TICKET(id,EVENT_ID,CUSTOMER_ID,PAYMENT_ID,INFO,DATE_TIME) VALUES (?,?,?,?,?,? );"
         );
         preparedStatement.setInt(1, ticket.getId());
         preparedStatement.setInt(2, ticket.getEvent().getId());
@@ -41,7 +41,7 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
     @Override
     public Ticket edit(Ticket ticket) throws Exception {
         preparedStatement = connection.prepareStatement(
-                "update ticket set event=?,customer=?,payment=?,info=?,date_time=? where id=?"
+                "UPDATE TICKET SET EVENT_ID=?,CUSTOMER_ID=?,PAYMENT_ID=?,INFO=?,DATE_TIME=? where ID=?"
         );
         preparedStatement.setInt(1, ticket.getId());
         preparedStatement.setInt(2, ticket.getEvent().getId());

@@ -96,7 +96,7 @@ public class CustomerBl implements CRUD<Customer> {
 
     public Customer findByPhoneNumber(String phoneNumber) throws Exception {
         try (CustomerDa customerDa = new CustomerDa()) {
-            Customer customer = customerDa.findByPhoneNUmber(phoneNumber);
+            Customer customer = customerDa.findByPhoneNumber(phoneNumber);
             if (customer != null) {
                 return customer;
             } else {
