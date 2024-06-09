@@ -19,7 +19,7 @@ public class Event {
     private EventCategory category;
     private Double price;
     private int capacity;
-    private LocalDateTime dateTime;
+    private LocalDateTime date_time;
     private String description;
 
     @Override

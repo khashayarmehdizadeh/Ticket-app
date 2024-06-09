@@ -488,7 +488,7 @@
     </table>
     <table id="101" parent="2" name="EVENT">
       <CreatedTimestamp>2024-06-02.17:12:37</CreatedTimestamp>
-      <DetailsLevel>3</DetailsLevel>
+      <DetailsLevel>2</DetailsLevel>
       <ModifiedTimestamp>2024-06-02.17:12:37</ModifiedTimestamp>
       <ObjectId>77870</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>

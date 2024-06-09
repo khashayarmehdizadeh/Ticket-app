@@ -1,6 +1,5 @@
 package mft.model.da;
 
-
 import lombok.extern.log4j.Log4j;
 import mft.model.entity.Event;
 import mft.model.entity.enums.EventCategory;
@@ -8,69 +7,69 @@ import mft.model.tools.CRUD;
 import mft.model.tools.ConnectionProvider;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
 @Log4j
 public class EventDa implements AutoCloseable, CRUD<Event> {
     private final Connection connection;
-    private PreparedStatement PreparedStatement;
+    private PreparedStatement preparedStatement;
 
-    public  EventDa() throws SQLException {
+    public EventDa() throws SQLException {
         connection = ConnectionProvider.getConnectionProvider().getConnection();
     }
 
+
     @Override
     public Event save(Event event) throws Exception {
-        event.setId(ConnectionProvider.getConnectionProvider().getNextId("EVENT_SEQ"));
-        //event.setDateTime(LocalDateTime.now());
 
-        PreparedStatement = connection.prepareStatement(
-                "INSERT INTO EVENT(ID,NAME,CATEGORY,PRICE,CAPACITY,DESCRIPTION) VALUES (?,?,?,?,?,? )"
+        event.setId(ConnectionProvider.getConnectionProvider().getNextId("event_SEQ"));
+        event.setDate_time(LocalDateTime.now());
+        preparedStatement = connection.prepareStatement(
+                "INSERT INTO EVENT(ID, NAME, CATEGORY, PRICE, CAPACITY, DESCRIPTION, DATE_TIME)VALUES (?,?,?,?,?,?,?)"
         );
-        PreparedStatement.setInt(1, event.getId());
-        PreparedStatement.setString(2, event.getName());
-        PreparedStatement.setString(3, event.getCategory().name());
-        PreparedStatement.setDouble(4, event.getPrice());
-        PreparedStatement.setInt(5, event.getCapacity());
-        PreparedStatement.setString(6, event.getDescription());
-       // PreparedStatement.setTimestamp(7, Timestamp.valueOf(event.getDateTime()));
-        PreparedStatement.execute();
+        preparedStatement.setInt(1, event.getId());
+        preparedStatement.setString(2, event.getName());
+        preparedStatement.setString(3, event.getCategory().name());
+        preparedStatement.setDouble(4, event.getPrice());
+        preparedStatement.setInt(5, event.getCapacity());
+        preparedStatement.setString(6, event.getDescription());
+        preparedStatement.setTimestamp(7, Timestamp.valueOf(event.getDate_time()));
+        preparedStatement.execute();
         return event;
     }
 
     @Override
     public Event edit(Event event) throws Exception {
-        PreparedStatement = connection.prepareStatement(
-                "UPDATE event SET name=?,category=?,price=?,capacity=?,description=?, date_time=? where id=?"
-
+        preparedStatement = connection.prepareStatement(
+                "UPDATE EVENT SET NAME=?,CATEGORY=?,PRICE=?,CAPACITY=?,DESCRIPTION=?,DATE_TIME=? WHERE ID=?"
         );
-        PreparedStatement.setInt(1, event.getId());
-        PreparedStatement.setString(2, event.getName());
-        PreparedStatement.setString(3, event.getCategory().name());
-        PreparedStatement.setDouble(4, event.getPrice());
-        PreparedStatement.setInt(5, event.getCapacity());
-        PreparedStatement.setTimestamp(6, Timestamp.valueOf(event.getDateTime()));
-        PreparedStatement.setString(7, event.getDescription());
-
-        PreparedStatement.execute();
+        preparedStatement.setString(1, event.getName());
+        preparedStatement.setString(2, event.getCategory().name());
+        preparedStatement.setDouble(3, event.getPrice());
+        preparedStatement.setInt(4, event.getCapacity());
+        preparedStatement.setString(5, event.getDescription());
+        preparedStatement.setTimestamp(6, Timestamp.valueOf(event.getDate_time()));
+        preparedStatement.setInt(7, event.getId());
         return event;
     }
 
     @Override
     public Event remove(int id) throws Exception {
-        PreparedStatement = connection.prepareStatement(
-                "delete from event where id=?"
+        preparedStatement = connection.prepareStatement(
+                "DELETE FROM EVENT WHERE ID=?"
         );
-        PreparedStatement.setInt(1, id);
-        PreparedStatement.execute();
+        preparedStatement.setInt(1, id);
+        preparedStatement.execute();
         return null;
     }
 
     @Override
     public List<Event> findAll() throws Exception {
-        List<Event> EventList = new ArrayList<>();
-        PreparedStatement = connection.prepareStatement("select *from event order by id");
-        ResultSet resultSet = PreparedStatement.executeQuery();
+        List<Event> eventList = new ArrayList<>();
+        preparedStatement = connection.prepareStatement("SELECT * FROM EVENT ORDER BY ID");
+        ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             Event event = Event
                     .builder()
@@ -80,18 +79,19 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
                     .price(resultSet.getDouble("price"))
                     .capacity(resultSet.getInt("capacity"))
                     .description(resultSet.getString("description"))
-                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
+                    .date_time(resultSet.getDate("date_time").toLocalDate().atStartOfDay())
                     .build();
-            EventList.add(event);
+            eventList.add(event);
         }
-        return EventList;
+
+        return eventList;
     }
 
     @Override
     public Event findById(int id) throws Exception {
-        PreparedStatement = connection.prepareStatement("select *from event where id=?");
-        PreparedStatement.setInt(1, id);
-        ResultSet resultSet = PreparedStatement.executeQuery();
+        preparedStatement = connection.prepareStatement("SELECT * FROM EVENT WHERE ID=?");
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
         Event event = null;
         if (resultSet.next()) {
             event = Event
@@ -102,57 +102,15 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
                     .price(resultSet.getDouble("price"))
                     .capacity(resultSet.getInt("capacity"))
                     .description(resultSet.getString("description"))
-                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
+                    .date_time(resultSet.getDate("date_time").toLocalDate().atStartOfDay())
                     .build();
         }
-        return event;
-    }
-
-
-    public Event findByCategory(String category) throws Exception {
-        PreparedStatement = connection.prepareStatement("select *from event where category=?");
-        PreparedStatement.setString(1, category);
-        ResultSet resultSet = PreparedStatement.executeQuery();
-        Event event = null;
-        if (resultSet.next()) {
-            event = Event
-                    .builder()
-                    .id(resultSet.getInt("id"))
-                    .name(resultSet.getString("name"))
-                    .category(EventCategory.valueOf(resultSet.getString("category")))
-                    .price(resultSet.getDouble("price"))
-                    .capacity(resultSet.getInt("capacity"))
-                    .description(resultSet.getString("description"))
-                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
-                    .build();
-        }
-        return event;
-    }
-
-
-    public Event findByDateTime(Timestamp datetime) throws Exception {
-        PreparedStatement = connection.prepareStatement("select *from event where datetime=?");
-        PreparedStatement.setTimestamp(1, datetime);
-        ResultSet resultSet = PreparedStatement.executeQuery();
-        Event event = null;
-        if (resultSet.next()) {
-            event = Event
-                    .builder()
-                    .id(resultSet.getInt("id"))
-                    .name(resultSet.getString("name"))
-                    .category(EventCategory.valueOf(resultSet.getString("category")))
-                    .price(resultSet.getDouble("price"))
-                    .capacity(resultSet.getInt("capacity"))
-                    .description(resultSet.getString("description"))
-                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
-                    .build();
-        }
-        return event;
+        return null;
     }
 
     @Override
     public void close() throws Exception {
-        PreparedStatement.close();
+        preparedStatement.close();
         connection.close();
     }
 }
