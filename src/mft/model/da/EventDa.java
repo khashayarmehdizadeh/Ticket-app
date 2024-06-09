@@ -102,7 +102,7 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
                     .price(resultSet.getDouble("price"))
                     .capacity(resultSet.getInt("capacity"))
                     .description(resultSet.getString("description"))
-                    .date_time(resultSet.getDate("date_time").toLocalDate().atStartOfDay())
+                   // .date_time(resultSet.getDate("date_time").toLocalDate().atStartOfDay())
                     .build();
         }
         return event;

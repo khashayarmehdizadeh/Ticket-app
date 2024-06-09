@@ -24,16 +24,16 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
     @Override
     public Ticket save(Ticket ticket) throws Exception {
         ticket.setId(ConnectionProvider.getConnectionProvider().getNextId("ticket_SEQ"));
-        ticket.setDateTime(LocalDateTime.now());
+        ticket.setDate_Time(LocalDateTime.now());
         preparedStatement = connection.prepareStatement(
-                "INSERT INTO TICKET(id,EVENT_ID,CUSTOMER_ID,PAYMENT_ID,INFO,DATE_TIME) VALUES (?,?,?,?,?,? );"
+                "INSERT INTO TICKET(ID, EVENT_ID, INFO, PAYMENT_ID, CUSTOMER_ID, DATE_TIME) VALUES (?,?,?,?,?,? );"
         );
         preparedStatement.setInt(1, ticket.getId());
         preparedStatement.setInt(2, ticket.getEvent().getId());
         preparedStatement.setInt(3, ticket.getCustomer().getId());
         preparedStatement.setInt(4, ticket.getPayment().getId());
         preparedStatement.setString(5, ticket.getInfo());
-        preparedStatement.setTimestamp(6, Timestamp.valueOf(ticket.getDateTime()));
+        preparedStatement.setTimestamp(6, Timestamp.valueOf(ticket.getDate_Time()));
         preparedStatement.execute();
         return ticket;
     }
@@ -48,7 +48,7 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
         preparedStatement.setInt(3, ticket.getCustomer().getId());
         preparedStatement.setInt(4, ticket.getPayment().getId());
         preparedStatement.setString(5, ticket.getInfo());
-        preparedStatement.setTimestamp(6, Timestamp.valueOf(ticket.getDateTime()));
+        preparedStatement.setTimestamp(6, Timestamp.valueOf(ticket.getDate_Time()));
         preparedStatement.execute();
         return ticket;
 
@@ -57,7 +57,7 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
     @Override
     public Ticket remove(int id) throws Exception {
         preparedStatement = connection.prepareStatement(
-                "delete from ticket where id=?"
+                "DELETE FROM TICKET WHERE ID=?"
         );
         preparedStatement.setInt(1, id);
         preparedStatement.execute();
@@ -68,7 +68,7 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
     //todo
     public List<Ticket> findAll() throws Exception {
         List<Ticket> ticketList = new ArrayList<>();
-        preparedStatement = connection.prepareStatement("select *from ticket order by id");
+        preparedStatement = connection.prepareStatement("SELECT *FROM TICKET ORDER BY ID");
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             Ticket ticket = Ticket
@@ -77,7 +77,7 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
                     .info(resultSet.getString("info"))
                     .customer(Customer.builder().id(resultSet.getInt("customer")).build())
                     .event(Event.builder().id(resultSet.getInt("event")).build())
-                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
+                    .date_Time(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
                     .payment(Payment.builder().id(resultSet.getInt("payment")).build())
                     .build();
             ticketList.add(ticket);
@@ -87,7 +87,7 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
 
     @Override
     public Ticket findById(int id) throws Exception {
-        preparedStatement = connection.prepareStatement("select*from ticket where id=?");
+        preparedStatement = connection.prepareStatement("SELECT * FROM TICKET WHERE ID=?");
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         Ticket ticket = null;
@@ -98,7 +98,7 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
                     .info(resultSet.getString("info"))
                     .customer(Customer.builder().id(resultSet.getInt("customer")).build())
                     .event(Event.builder().id(resultSet.getInt("event")).build())
-                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
+                    .date_Time(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
                     .payment(Payment.builder().id(resultSet.getInt("payment")).build())
                     .build();
         }

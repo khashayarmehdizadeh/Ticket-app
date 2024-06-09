@@ -18,7 +18,7 @@ public class Ticket {
     private Customer customer;
     private Payment payment;
     private String info;
-    private LocalDateTime dateTime;
+    private LocalDateTime date_Time;
 
     @Override
     public String toString() {
