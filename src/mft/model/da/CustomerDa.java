@@ -42,11 +42,11 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
         preparedStatement = connection.prepareStatement(
                 "UPDATE CUSTOMER SET NAME=?,EMAIL=?,FAMILY=?,PHONE_NUMBER=? WHERE ID=?"
         );
-        preparedStatement.setInt(1, customer.getId());
-        preparedStatement.setString(2, customer.getName());
-        preparedStatement.setString(3, customer.getEmail());
-        preparedStatement.setString(4, customer.getFamily());
-        preparedStatement.setString(5, customer.getPhone_number());
+        preparedStatement.setString(1, customer.getName());
+        preparedStatement.setString(2, customer.getEmail());
+        preparedStatement.setString(3, customer.getFamily());
+        preparedStatement.setString(4, customer.getPhone_number());
+        preparedStatement.setInt(5, customer.getId());
         preparedStatement.execute();
         return customer;
     }
@@ -107,7 +107,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
 
 
     public Customer findByFamily(String family) throws Exception {
-        preparedStatement = connection.prepareStatement("select * from CUSTOMER where FAMILY=?");
+        preparedStatement = connection.prepareStatement("SELECT * FROM CUSTOMER WHERE FAMILY=?");
         preparedStatement.setString(1, family);
         ResultSet resultSet = preparedStatement.executeQuery();
         Customer customer = null;
@@ -118,15 +118,15 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
                     .name(resultSet.getString("name"))
                     .family(resultSet.getString("family"))
                     .email(resultSet.getString("email"))
-                    .phone_number(resultSet.getString("phoneNumber"))
+                    .phone_number(resultSet.getString("phone_number"))
                     .build();
         }
         return customer;
     }
 
-    public Customer findByPhoneNumber(String phoneNumber) throws Exception {
+    public Customer findByPhoneNumber(String phone_number) throws Exception {
         preparedStatement = connection.prepareStatement("SELECT *FROM CUSTOMER WHERE  PHONE_NUMBER=?");
-        preparedStatement.setString(1, phoneNumber);
+        preparedStatement.setString(1, phone_number);
         ResultSet resultSet = preparedStatement.executeQuery();
         Customer customer = null;
         if (resultSet.next()) {
@@ -135,9 +135,8 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
                     .id(resultSet.getInt("id"))
                     .name(resultSet.getString("name"))
                     .family(resultSet.getString("family"))
-
                     .email(resultSet.getString("email"))
-                    .phone_number(resultSet.getString("phoneNumber"))
+                    .phone_number(resultSet.getString("phone_number"))
                     .build();
         }
         return customer;
@@ -154,7 +153,7 @@ public class CustomerDa implements AutoCloseable, CRUD<Customer> {
                     .id(resultSet.getInt("id"))
                     .name(resultSet.getString("name"))
                     .family(resultSet.getString("family"))
-                    .phone_number(resultSet.getString("phoneNumber"))
+                    .phone_number(resultSet.getString("phone_number"))
                     .email(resultSet.getString("email"))
                     .build();
         }

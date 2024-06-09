@@ -481,7 +481,7 @@
     </sequence>
     <table id="100" parent="2" name="CUSTOMER">
       <CreatedTimestamp>2024-06-02.13:19:22</CreatedTimestamp>
-      <DetailsLevel>3</DetailsLevel>
+      <DetailsLevel>2</DetailsLevel>
       <ModifiedTimestamp>2024-06-02.13:19:22</ModifiedTimestamp>
       <ObjectId>77852</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
