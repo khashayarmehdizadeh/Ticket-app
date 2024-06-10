@@ -16,9 +16,8 @@ import java.time.LocalDateTime;
 public class Payment {
     private int id;
     private Double amount;
-    private LocalDateTime date_time;
     private PaymentType payment_type;
-
+    private LocalDateTime date_time;
     @Override
      public String toString() {
         return new Gson().toJson(this);

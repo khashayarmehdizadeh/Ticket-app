@@ -24,13 +24,13 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
         payment.setId(ConnectionProvider.getConnectionProvider().getNextId("payment_SEQ"));
         payment.setDate_time(LocalDateTime.now());
         preparedStatement = connection.prepareStatement(
-                "INSERT INTO PAYMENT(ID,AMOUNT,DATE_TIME,PAYMENT_TYPE) VALUES (?,?,?,?)"
+                "INSERT INTO PAYMENT(ID,AMOUNT,PAYMENT_TYPE,DATE_TIME) VALUES (?,?,?,?)"
 
         );
         preparedStatement.setInt(1, payment.getId());
         preparedStatement.setDouble(2, payment.getAmount());
-        preparedStatement.setTimestamp(3,Timestamp.valueOf(payment.getDate_time()));
-        preparedStatement.setString(4, payment.getPayment_type().name());
+        preparedStatement.setString(3, payment.getPayment_type().name());
+        preparedStatement.setTimestamp(4,Timestamp.valueOf(payment.getDate_time()));
         preparedStatement.execute();
         return payment;
     }
@@ -38,12 +38,12 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
     @Override
     public Payment edit(Payment payment) throws Exception {
         preparedStatement = connection.prepareStatement(
-                "UPDATE PAYMENT SET AMOUNT=?,DATE_TIME=? ,PAYMENT_TYPE=? WHERE ID=?"
+                "UPDATE PAYMENT SET AMOUNT=?,PAYMENT_TYPE,DATE_TIME=? WHERE ID=?"
         );
-        preparedStatement.setInt(1, payment.getId());
+        preparedStatement.setInt(1,payment.getId());
         preparedStatement.setDouble(2, payment.getAmount());
-        preparedStatement.setTimestamp(4, Timestamp.valueOf(payment.getDate_time()));
-        preparedStatement.setString(3, String.valueOf(payment.getPayment_type()));
+        preparedStatement.setTimestamp(3, Timestamp.valueOf(payment.getDate_time()));
+        preparedStatement.setString(4, String.valueOf(payment.getPayment_type()));
         preparedStatement.execute();
         return payment;
     }
@@ -69,7 +69,7 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
                     .id(resultSet.getInt("id"))
                     .amount(resultSet.getDouble("amount"))
                     .payment_type(PaymentType.valueOf(resultSet.getString("payment_type")))
-                    .date_time(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
+                    .date_time(resultSet.getDate("date_time").toLocalDate().atStartOfDay())
                     .build();
             paymentList.add(payment);
         }

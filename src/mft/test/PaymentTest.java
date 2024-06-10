@@ -10,9 +10,10 @@ public class PaymentTest {
     public static void main(String[] args) throws Exception {
         Payment payment=
                 Payment.builder()
+                       // .id(1)
                         .amount(275.000)
+                        .payment_type(PaymentType.Card)
                         .date_time(LocalDateTime.now())
-                        .payment_type(PaymentType.Cash)
                         .build();
         System.out.println(PaymentBl.getPaymentBl().save(payment));
         System.out.println("saved");

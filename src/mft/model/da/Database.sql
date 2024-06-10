@@ -25,7 +25,7 @@ create table PAYMENT
 (
     id        number primary key,
     amount    number,
-    payment_type references payment,
+    payment_type nvarchar2(20),
     date_time timestamp
 );
 create sequence Payment_seq start with 1 increment by 1;

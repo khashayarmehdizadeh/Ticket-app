@@ -26,7 +26,7 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
         ticket.setId(ConnectionProvider.getConnectionProvider().getNextId("ticket_SEQ"));
         ticket.setDate_Time(LocalDateTime.now());
         preparedStatement = connection.prepareStatement(
-                "INSERT INTO TICKET(ID, EVENT_ID, INFO, PAYMENT_ID, CUSTOMER_ID, DATE_TIME) VALUES (?,?,?,?,?,? );"
+                "INSERT INTO TICKET(ID, EVENT_ID, INFO, PAYMENT_ID, CUSTOMER_ID, DATE_TIME) VALUES (?,?,?,?,?,? )"
         );
         preparedStatement.setInt(1, ticket.getId());
         preparedStatement.setInt(2, ticket.getEvent().getId());
