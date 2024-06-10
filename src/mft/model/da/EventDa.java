@@ -6,8 +6,10 @@ import mft.model.entity.enums.EventCategory;
 import mft.model.tools.CRUD;
 import mft.model.tools.ConnectionProvider;
 
-import java.sql.*;
-import java.time.LocalDateTime;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +27,9 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
     public Event save(Event event) throws Exception {
 
         event.setId(ConnectionProvider.getConnectionProvider().getNextId("event_SEQ"));
-        event.setDate_time(LocalDateTime.now());
+        ;
         preparedStatement = connection.prepareStatement(
-                "INSERT INTO EVENT(ID, NAME, CATEGORY, PRICE, CAPACITY, DESCRIPTION, DATE_TIME)VALUES (?,?,?,?,?,?,?)"
+                "INSERT INTO EVENT(ID, NAME, CATEGORY, PRICE, CAPACITY, DESCRIPTION)VALUES (?,?,?,?,?,?)"
         );
         preparedStatement.setInt(1, event.getId());
         preparedStatement.setString(2, event.getName());
@@ -35,7 +37,7 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
         preparedStatement.setDouble(4, event.getPrice());
         preparedStatement.setInt(5, event.getCapacity());
         preparedStatement.setString(6, event.getDescription());
-        preparedStatement.setTimestamp(7, Timestamp.valueOf(event.getDate_time()));
+
         preparedStatement.execute();
         return event;
     }
@@ -43,15 +45,15 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
     @Override
     public Event edit(Event event) throws Exception {
         preparedStatement = connection.prepareStatement(
-                "UPDATE EVENT SET NAME=?,CATEGORY=?,PRICE=?,CAPACITY=?,DESCRIPTION=?,DATE_TIME=? WHERE ID=?"
+                "UPDATE EVENT SET NAME=?,CATEGORY=?,PRICE=?,CAPACITY=?,DESCRIPTION=? WHERE ID=?"
         );
         preparedStatement.setString(1, event.getName());
         preparedStatement.setString(2, event.getCategory().name());
         preparedStatement.setDouble(3, event.getPrice());
         preparedStatement.setInt(4, event.getCapacity());
         preparedStatement.setString(5, event.getDescription());
-        preparedStatement.setTimestamp(6, Timestamp.valueOf(event.getDate_time()));
-        preparedStatement.setInt(7, event.getId());
+
+        preparedStatement.setInt(6, event.getId());
         return event;
     }
 
@@ -79,7 +81,6 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
                     .price(resultSet.getDouble("price"))
                     .capacity(resultSet.getInt("capacity"))
                     .description(resultSet.getString("description"))
-                   // .date_time(resultSet.getDate("date_time").toLocalDate().atStartOfDay())
                     .build();
             eventList.add(event);
         }
@@ -102,7 +103,6 @@ public class EventDa implements AutoCloseable, CRUD<Event> {
                     .price(resultSet.getDouble("price"))
                     .capacity(resultSet.getInt("capacity"))
                     .description(resultSet.getString("description"))
-                   // .date_time(resultSet.getDate("date_time").toLocalDate().atStartOfDay())
                     .build();
         }
         return event;

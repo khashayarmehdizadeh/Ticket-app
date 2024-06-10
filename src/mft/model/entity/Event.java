@@ -7,8 +7,6 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import mft.model.entity.enums.EventCategory;
 
-import java.time.LocalDateTime;
-
 @Getter
 @NoArgsConstructor
 @Setter
@@ -19,7 +17,6 @@ public class Event {
     private EventCategory category;
     private Double price;
     private int capacity;
-    private LocalDateTime date_time;
     private String description;
 
     @Override

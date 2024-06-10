@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/src/mft/test/TicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/test/TicketTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,14 +161,7 @@
       <workItem from="1717955645333" duration="1342000" />
       <workItem from="1717957601295" duration="8387000" />
       <workItem from="1717967198770" duration="1562000" />
-    </task>
-    <task id="LOCAL-00014" summary="update EventDa">
-      <option name="closed" value="true" />
-      <created>1716696700406</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1716696700406</updated>
+      <workItem from="1717980350057" duration="1344000" />
     </task>
     <task id="LOCAL-00015" summary="update EventDa">
       <option name="closed" value="true" />
@@ -554,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717968706466</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="update">
+      <option name="closed" value="true" />
+      <created>1717981094343</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1717981094343</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
