@@ -1,6 +1,7 @@
 package mft.model.bl;
 
 import lombok.Getter;
+import mft.controller.exceptions.NoEventFoundException;
 import mft.model.da.EventDa;
 import mft.model.entity.Event;
 import mft.model.tools.CRUD;
@@ -48,7 +49,7 @@ public class EventBl implements CRUD<Event> {
                 return event;
 
             } else
-                throw new Exception("Not event found");
+                throw new NoEventFoundException();
 
         }
 
@@ -61,7 +62,7 @@ public class EventBl implements CRUD<Event> {
             if (!eventList.isEmpty()) {
                 return eventList;
             } else {
-                throw new Exception("No event found");
+                throw new NoEventFoundException();
             }
 
         }
@@ -76,7 +77,7 @@ public class EventBl implements CRUD<Event> {
                 return event;
 
             } else {
-                throw new Exception("No event found");
+                throw new NoEventFoundException();
             }
         }
 

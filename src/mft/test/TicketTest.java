@@ -7,10 +7,13 @@ import java.time.LocalDateTime;
 
 public class TicketTest {
     public static void main(String[] args) throws Exception {
+
         Ticket ticket=
                 Ticket
                         .builder()
                         .info("jurassic")
+
+
 
 
 
