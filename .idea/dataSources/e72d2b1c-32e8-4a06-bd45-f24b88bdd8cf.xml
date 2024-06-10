@@ -9,20 +9,20 @@
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <CreatedTimestamp>2024-06-02.13:19:22</CreatedTimestamp>
       <Current>1</Current>
-      <LastIntrospectionL1Timestamp>2024-06-03.17:38:09</LastIntrospectionL1Timestamp>
-      <LastIntrospectionL2Timestamp>2024-06-03.17:38:09</LastIntrospectionL2Timestamp>
-      <LastIntrospectionL3Timestamp>2024-06-03.17:38:09</LastIntrospectionL3Timestamp>
+      <LastIntrospectionL1Timestamp>2024-06-09.14:29:56</LastIntrospectionL1Timestamp>
+      <LastIntrospectionL2Timestamp>2024-06-09.14:29:56</LastIntrospectionL2Timestamp>
+      <LastIntrospectionL3Timestamp>2024-06-09.14:29:56</LastIntrospectionL3Timestamp>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2024-06-04.07:38:09</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-06-10.04:29:56</LastIntrospectionLocalTimestamp>
       <LastIntrospectionVersion>200820</LastIntrospectionVersion>
-      <ModifiedTimestamp>2024-06-02.17:13:02</ModifiedTimestamp>
+      <ModifiedTimestamp>2024-06-09.14:29:56</ModifiedTimestamp>
       <ObjectId>115</ObjectId>
     </schema>
     <schema id="3" parent="1" name="PUBLIC">
       <AutoIntrospectionLevel>1</AutoIntrospectionLevel>
-      <LastIntrospectionL1Timestamp>2024-06-03.17:37:15</LastIntrospectionL1Timestamp>
+      <LastIntrospectionL1Timestamp>2024-06-09.14:29:56</LastIntrospectionL1Timestamp>
       <LastIntrospectionLevel>1</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2024-06-04.07:37:15</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-06-10.04:29:56</LastIntrospectionLocalTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
     <schema id="4" parent="1" name="SYS">
@@ -481,16 +481,16 @@
     </sequence>
     <table id="100" parent="2" name="CUSTOMER">
       <CreatedTimestamp>2024-06-02.13:19:22</CreatedTimestamp>
-      <DetailsLevel>2</DetailsLevel>
+      <DetailsLevel>3</DetailsLevel>
       <ModifiedTimestamp>2024-06-02.13:19:22</ModifiedTimestamp>
       <ObjectId>77852</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="101" parent="2" name="EVENT">
-      <CreatedTimestamp>2024-06-02.17:12:37</CreatedTimestamp>
+      <CreatedTimestamp>2024-06-09.14:29:56</CreatedTimestamp>
       <DetailsLevel>2</DetailsLevel>
-      <ModifiedTimestamp>2024-06-02.17:12:37</ModifiedTimestamp>
-      <ObjectId>77870</ObjectId>
+      <ModifiedTimestamp>2024-06-09.14:29:56</ModifiedTimestamp>
+      <ObjectId>77926</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="102" parent="2" name="PAYMENT">
@@ -503,7 +503,7 @@
     <table id="103" parent="2" name="TICKET">
       <CreatedTimestamp>2024-06-02.17:13:02</CreatedTimestamp>
       <DetailsLevel>3</DetailsLevel>
-      <ModifiedTimestamp>2024-06-02.17:13:02</ModifiedTimestamp>
+      <ModifiedTimestamp>2024-06-09.14:29:51</ModifiedTimestamp>
       <ObjectId>77876</ObjectId>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
@@ -59934,44 +59934,40 @@
       <DasType>NVARCHAR2(50)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="7536" parent="101" name="DATE_TIME">
-      <DasType>TIMESTAMP(6)|0s</DasType>
-      <Position>7</Position>
-    </column>
-    <index id="7537" parent="101" name="SYS_C008339">
+    <index id="7536" parent="101" name="SYS_C008346">
       <ColNames>ID</ColNames>
-      <CreatedTimestamp>2024-06-02.17:12:37</CreatedTimestamp>
-      <ModifiedTimestamp>2024-06-02.17:12:37</ModifiedTimestamp>
+      <CreatedTimestamp>2024-06-09.14:29:56</CreatedTimestamp>
+      <ModifiedTimestamp>2024-06-09.14:29:56</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>77871</ObjectId>
+      <ObjectId>77927</ObjectId>
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7538" parent="101" name="SYS_C008339">
+    <key id="7537" parent="101" name="SYS_C008346">
       <InitiallyDeferred>1</InitiallyDeferred>
-      <ModifiedTimestamp>2024-06-02.17:12:37</ModifiedTimestamp>
+      <ModifiedTimestamp>2024-06-09.14:29:56</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
-      <UnderlyingIndexName>SYS_C008339</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C008346</UnderlyingIndexName>
     </key>
-    <column id="7539" parent="102" name="ID">
+    <column id="7538" parent="102" name="ID">
       <DasType>NUMBER(*)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="7540" parent="102" name="AMOUNT">
+    <column id="7539" parent="102" name="AMOUNT">
       <DasType>NUMBER(*)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="7541" parent="102" name="PAYMENT_TYPE">
+    <column id="7540" parent="102" name="PAYMENT_TYPE">
       <DasType>NUMBER(*)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="7542" parent="102" name="DATE_TIME">
+    <column id="7541" parent="102" name="DATE_TIME">
       <DasType>TIMESTAMP(6)|0s</DasType>
       <Position>4</Position>
     </column>
-    <foreign-key id="7543" parent="102" name="SYS_C008341">
+    <foreign-key id="7542" parent="102" name="SYS_C008341">
       <ColNames>PAYMENT_TYPE</ColNames>
       <ModifiedTimestamp>2024-06-02.17:12:48</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -59979,7 +59975,7 @@
       <RefKeyName>SYS_C008340</RefKeyName>
       <RefTableName>PAYMENT</RefTableName>
     </foreign-key>
-    <index id="7544" parent="102" name="SYS_C008340">
+    <index id="7543" parent="102" name="SYS_C008340">
       <ColNames>ID</ColNames>
       <CreatedTimestamp>2024-06-02.17:12:48</CreatedTimestamp>
       <ModifiedTimestamp>2024-06-02.17:12:48</ModifiedTimestamp>
@@ -59988,47 +59984,39 @@
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7545" parent="102" name="SYS_C008340">
+    <key id="7544" parent="102" name="SYS_C008340">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2024-06-02.17:12:48</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>SYS_C008340</UnderlyingIndexName>
     </key>
-    <column id="7546" parent="103" name="ID">
+    <column id="7545" parent="103" name="ID">
       <DasType>NUMBER(*)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="7547" parent="103" name="EVENT_ID">
+    <column id="7546" parent="103" name="EVENT_ID">
       <DasType>NUMBER(*)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="7548" parent="103" name="INFO">
+    <column id="7547" parent="103" name="INFO">
       <DasType>NVARCHAR2(30)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="7549" parent="103" name="PAYMENT_ID">
+    <column id="7548" parent="103" name="PAYMENT_ID">
       <DasType>NUMBER(*)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="7550" parent="103" name="CUSTOMER_ID">
+    <column id="7549" parent="103" name="CUSTOMER_ID">
       <DasType>NUMBER(*)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="7551" parent="103" name="DATE_TIME">
+    <column id="7550" parent="103" name="DATE_TIME">
       <DasType>TIMESTAMP(6)|0s</DasType>
       <Position>6</Position>
     </column>
-    <foreign-key id="7552" parent="103" name="SYS_C008343">
-      <ColNames>EVENT_ID</ColNames>
-      <ModifiedTimestamp>2024-06-02.17:13:02</ModifiedTimestamp>
-      <NameSurrogate>1</NameSurrogate>
-      <OnDelete>restrict</OnDelete>
-      <RefKeyName>SYS_C008339</RefKeyName>
-      <RefTableName>EVENT</RefTableName>
-    </foreign-key>
-    <foreign-key id="7553" parent="103" name="SYS_C008344">
+    <foreign-key id="7551" parent="103" name="SYS_C008344">
       <ColNames>PAYMENT_ID</ColNames>
       <ModifiedTimestamp>2024-06-02.17:13:02</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -60036,7 +60024,7 @@
       <RefKeyName>SYS_C008340</RefKeyName>
       <RefTableName>PAYMENT</RefTableName>
     </foreign-key>
-    <foreign-key id="7554" parent="103" name="SYS_C008345">
+    <foreign-key id="7552" parent="103" name="SYS_C008345">
       <ColNames>CUSTOMER_ID</ColNames>
       <ModifiedTimestamp>2024-06-02.17:13:02</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -60044,7 +60032,7 @@
       <RefKeyName>SYS_C008331</RefKeyName>
       <RefTableName>CUSTOMER</RefTableName>
     </foreign-key>
-    <index id="7555" parent="103" name="SYS_C008342">
+    <index id="7553" parent="103" name="SYS_C008342">
       <ColNames>ID</ColNames>
       <CreatedTimestamp>2024-06-02.17:13:02</CreatedTimestamp>
       <ModifiedTimestamp>2024-06-02.17:13:02</ModifiedTimestamp>
@@ -60053,7 +60041,7 @@
       <Unique>1</Unique>
       <TablespaceName>USERS</TablespaceName>
     </index>
-    <key id="7556" parent="103" name="SYS_C008342">
+    <key id="7554" parent="103" name="SYS_C008342">
       <InitiallyDeferred>1</InitiallyDeferred>
       <ModifiedTimestamp>2024-06-02.17:13:02</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>

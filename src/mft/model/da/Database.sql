@@ -16,8 +16,7 @@ create table Event
     category    nvarchar2(20),
     price       number,
     capacity    number,
-    description nvarchar2(50),
-    date_time   timestamp
+    description nvarchar2(50)
 );
 create sequence Event_seq start with 1 increment by 1;
 

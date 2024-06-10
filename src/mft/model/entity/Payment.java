@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 public class Payment {
     private int id;
     private Double amount;
-    private LocalDateTime dateTime;
-    private PaymentType paymentType;
+    private LocalDateTime date_time;
+    private PaymentType payment_type;
 
     @Override
      public String toString() {

@@ -22,15 +22,15 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
     @Override
     public Payment save(Payment payment) throws Exception {
         payment.setId(ConnectionProvider.getConnectionProvider().getNextId("payment_SEQ"));
-        payment.setDateTime(LocalDateTime.now());
+        payment.setDate_time(LocalDateTime.now());
         preparedStatement = connection.prepareStatement(
-                "INSERT INTO PAYMENT(ID,AMOUNT,DATE_TIME,PAYMENT_TYPE) values (?,?,CURRENT_TIMESTAMP ,?)"
+                "INSERT INTO PAYMENT(ID,AMOUNT,DATE_TIME,PAYMENT_TYPE) VALUES (?,?,?,?)"
 
         );
         preparedStatement.setInt(1, payment.getId());
         preparedStatement.setDouble(2, payment.getAmount());
-        preparedStatement.setTimestamp(3,Timestamp.valueOf(payment.getDateTime()));
-        preparedStatement.setString(4, payment.getPaymentType().name());
+        preparedStatement.setTimestamp(3,Timestamp.valueOf(payment.getDate_time()));
+        preparedStatement.setString(4, payment.getPayment_type().name());
         preparedStatement.execute();
         return payment;
     }
@@ -42,8 +42,8 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
         );
         preparedStatement.setInt(1, payment.getId());
         preparedStatement.setDouble(2, payment.getAmount());
-        preparedStatement.setTimestamp(4, Timestamp.valueOf(payment.getDateTime()));
-        preparedStatement.setString(3, String.valueOf(payment.getPaymentType()));
+        preparedStatement.setTimestamp(4, Timestamp.valueOf(payment.getDate_time()));
+        preparedStatement.setString(3, String.valueOf(payment.getPayment_type()));
         preparedStatement.execute();
         return payment;
     }
@@ -68,8 +68,8 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
                     .builder()
                     .id(resultSet.getInt("id"))
                     .amount(resultSet.getDouble("amount"))
-                    .paymentType(PaymentType.valueOf(resultSet.getString("payment_type")))
-                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
+                    .payment_type(PaymentType.valueOf(resultSet.getString("payment_type")))
+                    .date_time(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
                     .build();
             paymentList.add(payment);
         }
@@ -87,8 +87,8 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
                     .builder()
                     .id(resultSet.getInt("id"))
                     .amount(resultSet.getDouble("amount"))
-                    .paymentType(PaymentType.valueOf(resultSet.getString("payment_type")))
-                    .dateTime(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
+                    .payment_type(PaymentType.valueOf(resultSet.getString("payment_type")))
+                    .date_time(resultSet.getDate("datetime").toLocalDate().atStartOfDay())
                     .build();
 
         }
