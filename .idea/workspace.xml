@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e72d2b1c-32e8-4a06-bd45-f24b88bdd8cf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e72d2b1c-32e8-4a06-bd45-f24b88bdd8cf.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mft/model/da/PaymentDa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/PaymentDa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mft/model/da/TicketDa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/TicketDa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mft/model/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/entity/Payment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mft/test/PaymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/test/PaymentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,32 +81,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="CustomerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mft.test.CustomerTest" />
-      <module name="TicketApllication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="mft.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EventTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mft.test.EventTest" />
-      <module name="TicketApllication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="mft.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Database.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/mft/model/da/Database.sql" />
       <script-mode>FILE</script-mode>
@@ -120,8 +93,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CustomerTest" />
-        <item itemvalue="Application.EventTest" />
         <item itemvalue="Database Script.Database.sql" />
         <item itemvalue="Database Script.db.sql" />
       </list>
@@ -169,15 +140,8 @@
       <workItem from="1717980350057" duration="2686000" />
       <workItem from="1717993303390" duration="741000" />
       <workItem from="1718038826905" duration="2393000" />
-      <workItem from="1718054437955" duration="1473000" />
-    </task>
-    <task id="LOCAL-00017" summary="update EventBl">
-      <option name="closed" value="true" />
-      <created>1716752096132</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1716752096133</updated>
+      <workItem from="1718054437955" duration="1644000" />
+      <workItem from="1718083982075" duration="3633000" />
     </task>
     <task id="LOCAL-00018" summary="update EventBl">
       <option name="closed" value="true" />
@@ -563,7 +527,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718044354846</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="update">
+      <option name="closed" value="true" />
+      <created>1718057684703</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1718057684703</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
