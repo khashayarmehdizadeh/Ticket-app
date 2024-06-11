@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 public class Ticket {
     private int id;
     private Event event;
-    private Customer customer;
     private Payment payment;
+    private Customer customer;
     private String info;
     private LocalDateTime date_Time;
 

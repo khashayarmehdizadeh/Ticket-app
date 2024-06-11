@@ -28,11 +28,11 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
         preparedStatement = connection.prepareStatement(
                 "INSERT INTO TICKET(ID, EVENT_ID, INFO, PAYMENT_ID, CUSTOMER_ID, DATE_TIME) VALUES (?,?,?,?,?,? )"
         );
-        preparedStatement.setInt(1, ticket.getId());
+        preparedStatement.setInt(1,ticket.getId());
         preparedStatement.setInt(2, ticket.getEvent().getId());
-        preparedStatement.setInt(3, ticket.getCustomer().getId());
-        preparedStatement.setInt(4, ticket.getPayment().getId());
-        preparedStatement.setString(5, ticket.getInfo());
+        preparedStatement.setString(3,ticket.getInfo());
+        preparedStatement.setInt(4,ticket.getPayment().getId());
+        preparedStatement.setInt(5, ticket.getCustomer().getId());
         preparedStatement.setTimestamp(6, Timestamp.valueOf(ticket.getDate_Time()));
         preparedStatement.execute();
         return ticket;
@@ -41,7 +41,7 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
     @Override
     public Ticket edit(Ticket ticket) throws Exception {
         preparedStatement = connection.prepareStatement(
-                "UPDATE TICKET SET EVENT_ID=?,CUSTOMER_ID=?,PAYMENT_ID=?,INFO=?,DATE_TIME=? where ID=?"
+                "UPDATE TICKET SET EVENT_ID=?,CUSTOMER_ID=?,PAYMENT_ID=?,INFO=?,DATE_TIME=? WHERE ID=?"
         );
         preparedStatement.setInt(1, ticket.getId());
         preparedStatement.setInt(2, ticket.getEvent().getId());
