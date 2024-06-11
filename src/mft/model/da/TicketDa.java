@@ -65,7 +65,6 @@ public class TicketDa implements AutoCloseable, CRUD<Ticket> {
     }
 
     @Override
-    //todo
     public List<Ticket> findAll() throws Exception {
         List<Ticket> ticketList = new ArrayList<>();
         preparedStatement = connection.prepareStatement("SELECT *FROM TICKET ORDER BY ID");

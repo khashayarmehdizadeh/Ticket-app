@@ -8,7 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/e72d2b1c-32e8-4a06-bd45-f24b88bdd8cf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e72d2b1c-32e8-4a06-bd45-f24b88bdd8cf.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mft/model/da/PaymentDa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/PaymentDa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mft/test/PaymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/test/PaymentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mft/model/da/TicketDa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/TicketDa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +80,7 @@
       <recent name="mft.model.entity" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Database Script.Database.sql">
     <configuration name="Database.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/mft/model/da/Database.sql" />
       <script-mode>FILE</script-mode>
@@ -141,15 +141,8 @@
       <workItem from="1717993303390" duration="741000" />
       <workItem from="1718038826905" duration="2393000" />
       <workItem from="1718054437955" duration="1644000" />
-      <workItem from="1718083982075" duration="3633000" />
-    </task>
-    <task id="LOCAL-00018" summary="update EventBl">
-      <option name="closed" value="true" />
-      <created>1716771938853</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1716771938853</updated>
+      <workItem from="1718083982075" duration="5001000" />
+      <workItem from="1718141432045" duration="512000" />
     </task>
     <task id="LOCAL-00019" summary="update EventBl">
       <option name="closed" value="true" />
@@ -535,7 +528,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718057684703</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="update">
+      <option name="closed" value="true" />
+      <created>1718090047311</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1718090047312</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

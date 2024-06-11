@@ -2,14 +2,13 @@ package mft.model.da;
 
 import lombok.extern.log4j.Log4j;
 import mft.model.entity.Payment;
+import mft.model.entity.enums.PaymentType;
 import mft.model.tools.CRUD;
 import mft.model.tools.ConnectionProvider;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 @Log4j
 public class PaymentDa implements AutoCloseable, CRUD<Payment> {
@@ -59,12 +58,39 @@ public class PaymentDa implements AutoCloseable, CRUD<Payment> {
 
     @Override
     public List<Payment> findAll() throws Exception {
-        return null;
+        List<Payment> paymentList=new ArrayList<>();
+        preparedStatement=connection.prepareStatement("SELECT *FROM PAYMENT ORDER BY ID");
+        ResultSet resultSet=preparedStatement.executeQuery();
+        while (resultSet.next()){
+            Payment payment=Payment
+                    .builder()
+                    .id(resultSet.getInt("id"))
+                    .amount(resultSet.getDouble("amount"))
+                    .payment_type(PaymentType.valueOf(resultSet.getString("payment_type")))
+                    .date_time((resultSet.getDate("date_time").toLocalDate().atStartOfDay()))
+                    .build();
+            paymentList.add(payment);
+        }
+        return paymentList;
     }
 
     @Override
     public Payment findById(int id) throws Exception {
-        return null;
+        preparedStatement=connection.prepareStatement("SELECT * FROM PAYMENT WHERE ID=?");
+        preparedStatement.setInt(1,id);
+        ResultSet resultSet=preparedStatement.executeQuery();
+        Payment payment=null;
+        if (resultSet.next()){
+            payment=Payment
+                    .builder()
+                    .id(resultSet.getInt("id"))
+                    .amount(resultSet.getDouble("amount"))
+                    .payment_type(PaymentType.valueOf(resultSet.getString("payment_type")))
+                    .date_time((resultSet.getDate("date_time").toLocalDate().atStartOfDay()))
+
+                    .build();
+        }
+        return payment;
     }
 
     @Override
