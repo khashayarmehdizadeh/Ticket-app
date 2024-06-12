@@ -10,7 +10,7 @@ public class WindowsManager {
     public static void showPersonForm() throws IOException {
         Stage stage = new Stage();
         Scene scene = new Scene(
-                FXMLLoader.load(WindowsManager.class.getResource("view/profile.fxml"))
+                FXMLLoader.load(WindowsManager.class.getResource("view/Ticket.fxml"))
         );
 
         stage.setScene(scene);

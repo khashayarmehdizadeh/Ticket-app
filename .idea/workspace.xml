@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/src/mft/model/da/TicketDa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/da/TicketDa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mft/model/entity/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/model/entity/Ticket.java" afterDir="false" />
+    <list default="true" id="91e89ea1-7070-4b7b-bbab-452f70b16be0" name="Changes" comment="test ok!">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e72d2b1c-32e8-4a06-bd45-f24b88bdd8cf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e72d2b1c-32e8-4a06-bd45-f24b88bdd8cf.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mft/test/PaymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/test/PaymentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mft/test/TicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/test/TicketTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mft/view/WindowsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mft/view/WindowsManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +81,7 @@
       <recent name="mft.model.entity" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Database Script.Database.sql">
     <configuration name="Database.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/mft/model/da/Database.sql" />
       <script-mode>FILE</script-mode>
@@ -141,15 +143,8 @@
       <workItem from="1718038826905" duration="2393000" />
       <workItem from="1718054437955" duration="1644000" />
       <workItem from="1718083982075" duration="5001000" />
-      <workItem from="1718141432045" duration="939000" />
-    </task>
-    <task id="LOCAL-00020" summary="update EventBl">
-      <option name="closed" value="true" />
-      <created>1716772711865</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1716772711865</updated>
+      <workItem from="1718141432045" duration="1846000" />
+      <workItem from="1718152449258" duration="963000" />
     </task>
     <task id="LOCAL-00021" summary="update db.sql">
       <option name="closed" value="true" />
@@ -535,7 +530,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718141968787</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="test ok!">
+      <option name="closed" value="true" />
+      <created>1718142460003</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1718142460003</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +560,8 @@
     <MESSAGE value="TicketDa" />
     <MESSAGE value="PaymentBl" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="test ok!" />
+    <option name="LAST_COMMIT_MESSAGE" value="test ok!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
